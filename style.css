@@ -130,7 +130,6 @@ nav {
   gap: 50px;
 }
 
-/* Partie haute : image + texte côte à côte */
 .hero-top {
   display: flex;
   justify-content: center;
@@ -185,7 +184,6 @@ nav {
   max-width: 600px;
 }
 
-/* CTA en dessous de tout */
 .hero-cta {
   display: flex;
   justify-content: center;
@@ -207,7 +205,6 @@ nav {
   white-space: nowrap;
 }
 
-/* Bouton principal */
 .btn-primary {
   background-color: #1c95eb;
   color: #fff;
@@ -217,7 +214,6 @@ nav {
   background-color: #0054ad;
 }
 
-/* Bouton secondaire */
 .btn-secondary {
   background-color: transparent;
   color: #1c95eb;
@@ -227,6 +223,179 @@ nav {
 .btn-secondary:hover {
   background-color: #1c95eb;
   color: #fff;
+}
+
+.separator-line {
+  width: 80%;
+  max-width: 1200px;
+  height: 3px;
+  background: linear-gradient(90deg, #1c95eb, #30ce27, #1c95eb); 
+  margin: 40px auto;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease-out;
+}
+
+.titre-chiffre {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titre-chiffre h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  color: #1c95eb;
+  font-weight: bold;
+}
+
+.cartes {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px; 
+  flex-wrap: wrap; 
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.cartes > div {
+  background-color: #ffffff;
+  flex: 1 1 250px; 
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cartes > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.compteur {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #30ce27;
+  margin-bottom: 10px;
+}
+
+.cartes > div span:last-child {
+  display: block;
+  font-size: 1.1rem;
+  color: #333333;
+  margin-top: 10px;
+}
+
+.infos {
+  padding: 100px 6%;
+  background: #ffffff;
+  position: relative;
+}
+
+/* ----- Titre stylé ----- */
+.titre-infos {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.titre-infos h2 {
+  font-size: clamp(28px, 3.2vw, 35px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1c95eb;
+}
+
+/* Petite barre décorative sous le titre */
+.titre-infos::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  border-radius: 20px;
+}
+
+/* ----- Contenu principal : image + texte ----- */
+.infos-content {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* ----- Image ----- */
+.info-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.info-left img {
+  width: 100%;
+  max-width: 470px;
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(28, 149, 235, 0.12);
+  border: 3px solid rgba(28,149,235,0.15);
+}
+
+/* ----- Bloc texte premium ----- */
+.info-right {
+  width: 50%;
+  max-width: 500px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Barre décorative verticale = détail premium */
+.info-right::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(#1c95eb, #30ce27);
+  border-radius: 2px;
+}
+
+/* Texte */
+.texte-info {
+  font-size: clamp(10px, 2vw, 20px);
+  line-height: 1.8;
+  color: #30ce27;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* ----- CTA ----- */
+.info-cta {
+  padding: 14px 32px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: 0.25s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.info-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
 }
 
 @media (max-width: 768px) {
@@ -348,8 +517,37 @@ nav {
     width: 100%;
     text-align: center;
   }
+
   .menu-cta:hover {
     background-color: #1aa813;
+  }
+
+  .infos-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .info-left, .info-right {
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .info-right {
+    align-items: center;
+    padding: 0;
+  }
+
+  .info-right::before {
+    display: none;
+  }
+
+  .texte-info {
+    text-align: center;
+  }
+
+  .info-cta {
+    margin: auto;
   }
 }
 
