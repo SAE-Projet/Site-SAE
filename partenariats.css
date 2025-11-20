@@ -669,3 +669,11 @@ nav {
     box-shadow: 0 10px 30px rgba(0,0,0,0.20);
     filter: brightness(1.1);
 }
+.carres-container .carre-item:nth-child(4) img {
+    object-fit: cover; 
+    transform: scale(1.2); 
+    transition: transform 0.5s ease;
+}
+.carres-container .carre-item:nth-child(4):hover img {
+    transform: scale(1.3);
+}
