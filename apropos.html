@@ -1,42 +1,239 @@
+<!-- HTML for A propos page -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Le Coin Des Étudiants</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos – Le Coin des Étudiants</title>
+  <link rel="stylesheet" href="apropos.css" />
 </head>
 <body>
-  <nav>
-    <div class="burger" id="burger">
-      &#9776; 
+
+  <section class="apropos-header">
+    <h2>À propos de nous</h2>
+
+    <div class="apropos-section">
+      <div class="apropos-image">
+        <img src="image-equipe.jpg" alt="Notre équipe" />
+      </div>
+
+      <div class="apropos-text">
+        <p>
+          Ici, tu peux raconter l'histoire du projet : comment tout a commencé, ce
+          qui a motivé la création de l'association, et les valeurs qui la
+          définissent.
+        </p>
+        <p>
+          Deuxième bloc de texte : approfondis la vision, les objectifs du projet
+          et l'impact que vous souhaitez créer.
+        </p>
+      </div>
     </div>
 
-    <div class="logo">
-      <img src="logo.png" alt="Logo">
-      <span>Le Coin Des Étudiants</span>
+    <div class="apropos-video">
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="Présentation vidéo"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <section class="equipe">
+    <h2>Notre équipe</h2>
+
+    <div class="equipe-grid">
+      <div class="membre">
+        <img src="membre1.jpg" alt="Membre équipe" />
+        <h3>Nom Prénom</h3>
+        <p>Poste dans l'association</p>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="membre">
+        <img src="membre2.jpg" alt="Membre équipe" />
+        <h3>Nom Prénom</h3>
+        <p>Poste dans l'association</p>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="membre">
+        <img src="membre3.jpg" alt="Membre équipe" />
+        <h3>Nom Prénom</h3>
+        <p>Poste dans l'association</p>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rejoindre">
+    <h2>Vous souhaitez nous rejoindre ?</h2>
+
+    <div class="cta-buttons">
+      <a href="formulaire.html" class="cta">Formulaire partenariat</a>
+      <a href="https://whatsapp.com/channel/0029VbAwDzD8fewrz5ocLE03" class="cta">Canal WhatsApp</a>
     </div>
 
-    <ul class="nav-links" id="nav-links">
-      <li class="menu-header">
-        <span>Le Coin Des Étudiants</span>
-      </li>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="apropos.html" class="active">À propos</a></li>
-      <li><a href="partenariats.html">Partenariats</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <button class="menu-cta">Télécharge l'application</button>
-    </ul>
+    <h3>Ou alors...</h3>
 
-    <div class="cta">
-      <button class="cta-btn" onclick="window.location.href='https://whatsapp.com/channel/0029VbAwDzD8fewrz5ocLE03'">
-        <img src="logo-whatsapp.png" alt="WhatsApp">
-        Rejoins notre canal
-      </button>
-    </div>
-  </nav>
-  <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
-  <script src="script.js"></script>
+    <a href="#" class="cta-big">Télécharger l'application</a>
+  </section>
+
 </body>
 </html>
+
+
+<!-- CSS for A propos page (apropos.css) -->
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding: 60px 6%;
+}
+
+h2 {
+  text-align: center;
+  color: #1c95eb;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  margin: 12px auto 0;
+  border-radius: 20px;
+}
+
+/* Mise en page principale */
+.apropos-section {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.apropos-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.apropos-text p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #30ce27;
+  line-height: 1.6;
+}
+
+/* Vidéo */
+.apropos-video iframe {
+  width: 100%;
+  max-width: 700px;
+  height: 380px;
+  border-radius: 16px;
+  border: none;
+  display: block;
+  margin: 40px auto 0;
+}
+
+/* Notre équipe */
+.equipe-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.membre {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.membre img {
+  width: 100%;
+  border-radius: 50%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.membre h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #1c95eb;
+}
+
+.membre p {
+  color: #30ce27;
+  margin: 5px 0;
+}
+
+.membre a {
+  color: #1c95eb;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+/* Rejoindre */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.cta {
+  display: inline-block;
+  background: #1c95eb;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta:hover {
+  background: #0054ad;
+}
+
+.cta-big {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  padding: 16px 40px;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta-big:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apropos-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
