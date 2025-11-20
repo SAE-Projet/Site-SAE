@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Le Coin Des Étudiants</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
   <nav>
@@ -37,6 +38,38 @@
     </div>
   </nav>
   <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
+  <main class="contact-layout">
+    
+    <section class="contact-info">
+      <h2>Infos</h2>
+      <div class="map-placeholder">
+        [Emplacement de la Carte et de la Localisation]
+      </div>
+      <p>123 Rue de la Solidarité, 75000 Paris</p>
+      </section>
+    
+    <section class="contact-form-container">
+      <h2>Formulaire</h2>
+      <form action="/submit-form" method="POST">
+        
+        <input type="text" name="nom" placeholder="Nom et Prénom" required>
+        <input type="email" name="email" placeholder="Email / Numéro de Tél." required>
+        
+        <select name="sujet">
+          <option value="">Sélection sujet/problème</option>
+          <option value="partenariat">Partenariat</option>
+          <option value="aide_logement">Aide au logement</option>
+          <option value="autre">Autre question</option>
+        </select>
+        
+        <textarea name="details" placeholder="Détails de votre demande" rows="6" required></textarea>
+        
+        <button type="submit">Envoyer</button>
+        
+      </form>
+    </section>
+    
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
