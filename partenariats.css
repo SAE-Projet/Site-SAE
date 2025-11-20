@@ -590,7 +590,6 @@ nav {
     background: linear-gradient(90deg, #1c95eb, #30ce27);
     border-radius: 5px;
 
-    /* Animation */
     transform: scaleX(0);
     animation: underline-grow 0.8s ease-out forwards;
 }
