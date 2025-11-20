@@ -569,6 +569,38 @@ nav {
   pointer-events: auto;
 }
 /*Fin du css de base et commencement du css pour la page partenariats*/
+
+.page-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.page-title h1 {
+    font-size: 42px;
+    color: #1c95eb;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.title-underline {
+    width: 120px;
+    height: 5px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, #1c95eb, #30ce27);
+    border-radius: 5px;
+
+    /* Animation */
+    transform: scaleX(0);
+    animation: underline-grow 0.8s ease-out forwards;
+}
+
+@keyframes underline-grow {
+    to {
+        transform: scaleX(1);
+    }
+}
+
 .carres-container {
   display: flex;
   flex-wrap: wrap;
