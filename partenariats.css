@@ -584,10 +584,10 @@ nav {
 }
 
 .carre {
-  width: 220px;          /* Taille du carré */
+  width: 220px; 
   height: 220px;
   border-radius: 16px;
-  overflow: hidden;      /* Cache ce qui dépasse */
+  overflow: hidden;     
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   display: flex;
   justify-content: center;
@@ -598,7 +598,7 @@ nav {
 .carre img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* 🔥 Réduit l’image sans la couper */
+  object-fit: contain;  
 }
 .carre-btn {
   margin-top: 12px;
@@ -611,4 +611,27 @@ nav {
 }
 .carre-btn:hover {
   background-color: #0054ad;
+}
+.big-button-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.big-button {
+    display: inline-block;
+    padding: 18px 50px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 40px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #1c95eb, #30ce27);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+.big-button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+    filter: brightness(1.1);
 }
