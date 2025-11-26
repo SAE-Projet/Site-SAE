@@ -308,7 +308,6 @@ nav {
   color: #1c95eb;
 }
 
-/* Petite barre décorative sous le titre */
 .titre-infos::after {
   content: "";
   display: block;
@@ -319,7 +318,6 @@ nav {
   border-radius: 20px;
 }
 
-/* ----- Contenu principal : image + texte ----- */
 .infos-content {
   display: flex;
   align-items: stretch;
@@ -328,7 +326,6 @@ nav {
   flex-wrap: wrap;
 }
 
-/* ----- Image ----- */
 .info-left {
   width: 50%;
   display: flex;
@@ -345,7 +342,6 @@ nav {
   border: 3px solid rgba(28,149,235,0.15);
 }
 
-/* ----- Bloc texte premium ----- */
 .info-right {
   width: 50%;
   max-width: 500px;
@@ -356,7 +352,6 @@ nav {
   position: relative;
 }
 
-/* Barre décorative verticale = détail premium */
 .info-right::before {
   content: "";
   position: absolute;
@@ -368,7 +363,6 @@ nav {
   border-radius: 2px;
 }
 
-/* Texte */
 .texte-info {
   font-size: clamp(10px, 2vw, 20px);
   line-height: 1.8;
@@ -377,7 +371,6 @@ nav {
   margin-bottom: 30px;
 }
 
-/* ----- CTA ----- */
 .info-cta {
   padding: 14px 32px;
   font-size: 1rem;
@@ -396,6 +389,29 @@ nav {
 .info-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
+}
+
+.titre-temoignage {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.titre-temoignage h2 {
+  font-size: clamp(28px, 3.2vw, 35px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1c95eb;
+}
+
+.titre-temoignage::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  border-radius: 20px;
 }
 
 .carousel-container {
