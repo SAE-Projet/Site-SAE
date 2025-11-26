@@ -428,7 +428,6 @@ nav {
   display: flex;
   overflow: hidden;
   width: 100%;
-  border: 2px dashed red;
 }
 
 .avis {
@@ -439,7 +438,6 @@ nav {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.4s ease;
-  border: 2px solid blue;
 }
 
 .avis p {
@@ -482,6 +480,29 @@ nav {
 
 .arrow.right {
   right: -60px;
+}
+
+.titre-commu {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.titre-commu h2 {
+  font-size: clamp(28px, 3.2vw, 35px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1c95eb;
+}
+
+.titre-commu::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  border-radius: 20px;
 }
 
 @media (max-width: 768px) {
