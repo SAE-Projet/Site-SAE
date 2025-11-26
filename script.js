@@ -41,10 +41,10 @@ window.addEventListener('resize', () => {
 const compteurs = document.querySelectorAll('.compteur');
 
 compteurs.forEach(compteur => {
-  const target = +compteur.getAttribute('data-target'); // valeur finale
+  const target = +compteur.getAttribute('data-target');
   let count = 0;
 
-  const increment = Math.ceil(target / 200); // incrémentation pour que ce soit rapide et lisse
+  const increment = Math.ceil(target / 200);
 
   const updateCounter = () => {
     count += increment;
@@ -52,7 +52,7 @@ compteurs.forEach(compteur => {
     compteur.textContent = count;
 
     if (count < target) {
-      requestAnimationFrame(updateCounter); // animation fluide
+      requestAnimationFrame(updateCounter);
     }
   };
 
@@ -65,7 +65,7 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.transform = 'scaleX(1)';  
-      observer.unobserve(entry.target);            
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
@@ -73,3 +73,26 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.separator-line').forEach(line => {
   observer.observe(line);
 });
+
+const carousel = document.getElementById("carousel");
+const next = document.getElementById("next");
+const prev = document.getElementById("prev");
+
+let index = 0;
+if (carousel) {
+  const avisCount = carousel.children.length;
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  next.addEventListener("click", () => {
+    index = (index + 1) % avisCount;
+    updateCarousel();
+  });
+
+  prev.addEventListener("click", () => {
+    index = (index - 1 + avisCount) % avisCount;
+    updateCarousel();
+  });
+}
