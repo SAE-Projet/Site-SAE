@@ -398,6 +398,74 @@ nav {
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
 }
 
+.carousel-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.avis {
+  min-width: 100%;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.4s ease;
+}
+
+.avis p {
+  font-size: 1.2rem;
+  color: #1c95eb;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.avis h4 {
+  color: #30ce27;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.arrow {
+  background: #1c95eb;
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.arrow:hover {
+  background: #0054ad;
+}
+
+.arrow.left {
+  left: -60px;
+}
+
+.arrow.right {
+  right: -60px;
+}
+
 @media (max-width: 768px) {
 
   nav {
@@ -549,6 +617,9 @@ nav {
   .info-cta {
     margin: auto;
   }
+
+  .arrow.left { left: -20px; }
+  .arrow.right { right: -20px; }
 }
 
 .menu-overlay {
