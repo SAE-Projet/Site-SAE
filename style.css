@@ -505,6 +505,47 @@ nav {
   border-radius: 20px;
 }
 
+.commu-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-logement,
+.btn-reseaux {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: clamp(12px, 1.2vw, 16px);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-logement {
+  background-color: #1c95eb;
+  color: #fff;
+}
+
+.btn-logement:hover {
+  background-color: #0054ad;
+}
+
+.btn-reseaux {
+  background-color: transparent;
+  color: #1c95eb;
+  border: 2px solid #1c95eb;
+}
+
+.btn-reseaux:hover {
+  background-color: #1c95eb;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
 
   nav {
