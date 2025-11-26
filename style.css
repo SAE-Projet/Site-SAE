@@ -546,6 +546,45 @@ nav {
   color: #fff;
 }
 
+footer {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+footer h3, footer h4 {
+  margin-bottom: 10px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
 
   nav {
