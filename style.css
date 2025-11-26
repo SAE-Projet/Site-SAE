@@ -428,6 +428,7 @@ nav {
   display: flex;
   overflow: hidden;
   width: 100%;
+  border: 2px dashed red;
 }
 
 .avis {
@@ -438,6 +439,7 @@ nav {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.4s ease;
+  border: 2px solid blue;
 }
 
 .avis p {
