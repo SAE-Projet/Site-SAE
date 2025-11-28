@@ -294,7 +294,6 @@ nav {
   position: relative;
 }
 
-/* ----- Titre stylé ----- */
 .titre-infos {
   text-align: center;
   margin-bottom: 60px;
@@ -432,13 +431,13 @@ nav {
 }
 
 .avis {
-  min-width: 100%;
+  width: 100%; 
+  flex-shrink: 0;
   background: #ffffff;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
-  transition: transform 0.4s ease;
 }
 
 .avis p {
