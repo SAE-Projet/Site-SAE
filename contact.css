@@ -1,6 +1,12 @@
 /* -------------------------------------- */
 /* Page Contact (CSS) */
 /* -------------------------------------- */
+.contact-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre tout horizontalement */
+}
 
 .page-title {
     text-align: center;
