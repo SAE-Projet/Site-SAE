@@ -434,12 +434,6 @@ nav {
   transition: transform 0.4s ease;
 }
 
-.carousel-container,
-.carousel-viewport,
-.carousel {
-  background: #transparent;
-}
-
 .avis {
   width: 100%;
   flex-shrink: 0;
@@ -512,6 +506,12 @@ nav {
   margin: 18px auto 0;
   background: linear-gradient(90deg, #1c95eb, #30ce27);
   border-radius: 20px;
+
+.carousel-container,
+.carousel-viewport,
+.carousel {
+  background: #transparent;
+}
 }
 
 .commu-cta {
