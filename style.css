@@ -434,11 +434,10 @@ nav {
   transition: transform 0.4s ease;
 }
 
-.temoignage,
 .carousel-container,
 .carousel-viewport,
 .carousel {
-  background: #f8f9fa;
+  background: #transparent;
 }
 
 .avis {
@@ -447,7 +446,6 @@ nav {
   background: #ffffff;
   padding: 30px;
   border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
 }
 
