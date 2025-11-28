@@ -434,6 +434,12 @@ nav {
   transition: transform 0.4s ease;
 }
 
+.carousel-container,
+.carousel-viewport,
+.carousel {
+  background: transparent;
+}
+
 .avis {
   width: 100%;
   flex-shrink: 0;
