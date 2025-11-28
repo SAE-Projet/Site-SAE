@@ -25,6 +25,32 @@
 /* -------------------------------------- */
 /* Style des éléments du Formulaire */
 /* -------------------------------------- */
+
+/* ----- Titre stylé ----- */
+.titre-infos {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.titre-infos h2 {
+  font-size: clamp(28px, 3.2vw, 35px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1c95eb;
+}
+
+/* Petite barre décorative sous le titre */
+.titre-infos::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  border-radius: 20px;
+}
+
 .contact-form-container form {
 
     display: flex;
