@@ -36,6 +36,7 @@
 .contact-layout {
     display: flex;
     padding: 40px 5%; 
+    gap: 30px; 
 }
 
 .contact-info {
@@ -47,7 +48,6 @@
 .contact-form-container { 
     width: 60%;
     padding-left: 30px; 
-
     display: flex; 
     flex-direction: column;
     gap: 20px;
