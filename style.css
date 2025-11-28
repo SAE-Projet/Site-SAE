@@ -437,7 +437,7 @@ nav {
 .carousel-container,
 .carousel-viewport,
 .carousel {
-  background: transparent;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
 }
 
 .avis {
