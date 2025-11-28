@@ -439,7 +439,7 @@ nav {
   flex-shrink: 0;
   background: #ffffff;
   padding: 30px;
-  border-radius: 18px;
+  border-radius: 30px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
 }
