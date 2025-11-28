@@ -423,6 +423,11 @@ nav {
   justify-content: center;
 }
 
+.carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
 .carousel {
   display: flex;
   width: 100%;
