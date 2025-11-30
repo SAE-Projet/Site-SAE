@@ -563,16 +563,14 @@ footer {
 
 .footer-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: 60px;
   max-width: 1200px;
   margin: auto;
-  text-align: left;
 }
 
 .footer-section {
-  flex: 1 1 220px;
+  flex: 1;
   min-width: 220px;
 }
 
@@ -580,6 +578,10 @@ footer {
   font-size: 1.3rem;
   margin-bottom: 14px;
   color: #30ce27;
+}
+
+.footer-section:first-child {
+  max-width: 260px;
 }
 
 footer ul {
