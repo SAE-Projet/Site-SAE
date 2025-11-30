@@ -573,6 +573,7 @@ footer {
 .footer-section {
   flex: 1;
   min-width: 220px;
+  text-align: center;
 }
 
 .footer-section h3 {
