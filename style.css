@@ -554,6 +554,7 @@ nav {
   background-color: #1c95eb;
   color: #fff;
 }
+
 footer {
   background-color: #1c1c1c;
   color: white;
@@ -577,7 +578,7 @@ footer {
 .footer-section h3 {
   font-size: 1.3rem;
   margin-bottom: 14px;
-  color: #30ce27;
+  color: white;
 }
 
 .footer-section:first-child {
