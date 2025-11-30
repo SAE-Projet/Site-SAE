@@ -527,14 +527,6 @@ nav {
 .commu-social img {
   width: 42px;
   height: 42px;
-  cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease;
-  filter: brightness(0) saturate(100%) invert(45%) sepia(97%) saturate(1159%) hue-rotate(177deg) brightness(92%) contrast(103%);
-}
-
-.commu-social img:hover {
-  transform: scale(1.12);
-  filter: brightness(1.2);
 }
 
 .commu-cta {
