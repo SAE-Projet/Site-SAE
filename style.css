@@ -554,11 +554,10 @@ nav {
   background-color: #1c95eb;
   color: #fff;
 }
-
 footer {
   background-color: #1c1c1c;
   color: white;
-  padding: 40px 20px;
+  padding: 50px 20px;
   margin-top: 40px;
 }
 
@@ -566,18 +565,21 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   max-width: 1200px;
   margin: auto;
+  text-align: left;
 }
 
 .footer-section {
-  flex: 1 1 200px;
-  margin: 10px;
+  flex: 1 1 220px;
+  min-width: 220px;
 }
 
-footer h3, footer h4 {
-  margin-bottom: 10px;
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: #30ce27;
 }
 
 footer ul {
@@ -585,15 +587,32 @@ footer ul {
   padding: 0;
 }
 
+footer ul li {
+  margin: 6px 0;
+}
+
 footer ul li a {
   color: #ccc;
   text-decoration: none;
+  transition: 0.2s ease-in-out;
 }
 
 footer ul li a:hover {
   color: white;
-  text-decoration: underline;
+  padding-left: 4px; 
 }
+
+footer p {
+  color: #ccc;
+  margin: 6px 0;
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    text-align: center;
+  }
+}
+
 
 @media (max-width: 768px) {
 
