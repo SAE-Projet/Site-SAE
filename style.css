@@ -806,7 +806,7 @@ footer p {
 
   .hero-left,
   .hero-right {
-    max-width: 100% !important;
+    max-width: 90% !important;
     flex-basis: 100% !important;
   }
 
@@ -815,8 +815,9 @@ footer p {
   }
 
   .hero-left img {
-    width: 95% !important; /* agrandit l'image */
+    width: 90% !important;
     max-width: 500px;
+    margin-bottom: 30px;
   }
 
   .hero-right h1 {
