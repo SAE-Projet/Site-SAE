@@ -9,10 +9,6 @@ body {
   background-color: #f8f9fa;
 }
 
-/* ----------------------------- */
-/* NAVBAR */
-/* ----------------------------- */
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -101,10 +97,6 @@ nav {
   width: auto;
 }
 
-/* ----------------------------- */
-/* BURGER (mobile) */
-/* ----------------------------- */
-
 .burger {
   display: none;
   font-size: 28px;
@@ -119,74 +111,71 @@ nav {
   transform: rotate(90deg);
 }
 
-.nav-links .menu-header,
-.menu-cta {
+.nav-links .menu-header {
   display: none;
 }
 
-/* ----------------------------- */
-/* TITRE DE PAGE + ANIMATION */
-/* ----------------------------- */
+.menu-cta {
+  display: none; 
+}
 
 .page-title {
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .page-title h1 {
-  font-size: 42px;
-  color: #007bff;
-  font-weight: 600;
-  letter-spacing: 1px;
+    font-size: 42px;
+    color:  #007bff;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .title-underline {
-  width: 120px;
-  height: 5px;
-  margin: 12px auto 0;
-  background: linear-gradient(90deg, #1c95eb, #30ce27);
-  border-radius: 5px;
-  transform: scaleX(0);
-  animation: underline-grow 0.8s ease-out forwards;
+    width: 120px;
+    height: 5px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, #1c95eb, #30ce27);
+    border-radius: 5px;
+
+    transform: scaleX(0);
+    animation: underline-grow 0.8s ease-out forwards;
 }
 
 @keyframes underline-grow {
-  to {
-    transform: scaleX(1);
-  }
+    to {
+        transform: scaleX(1);
+    }
 }
 
-/* ----------------------------- */
-/* CONTACT LAYOUT */
-/* ----------------------------- */
-
 .contact-layout {
-  display: flex;
-  padding: 40px 5%;
-  gap: 30px;
+    display: flex;
+    padding: 40px 5%; 
+    gap: 30px; 
 }
 
 .contact-info {
-  width: 40%;
-  border-right: 1px solid black;
-  padding-right: 30px;
+    width: 40%;
+    border-right: 1px solid black; 
+    padding-right: 30px; 
 }
 
-.contact-form-container {
-  width: 60%;
-  padding-left: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.contact-form-container { 
+    width: 60%;
+    padding-left: 30px; 
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* ----------------------------- */
-/* TITRE FORMULAIRE */
-/* ----------------------------- */
+/* -------------------------------------- */
+/* Style des éléments du Formulaire */
+/* -------------------------------------- */
 
+/* ----- Titre stylé ----- */
 .titre-infos {
   text-align: center;
   margin-bottom: 60px;
@@ -200,6 +189,7 @@ nav {
   color: #1c95eb;
 }
 
+/* Petite barre décorative sous le titre */
 .titre-infos::after {
   content: "";
   display: block;
@@ -210,132 +200,70 @@ nav {
   border-radius: 20px;
 }
 
-/* ----------------------------- */
-/* FORMULAIRE */
-/* ----------------------------- */
-
 .contact-form-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .contact-form-container input[type="text"],
 .contact-form-container input[type="email"],
 .contact-form-container select,
 .contact-form-container textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .contact-form-container textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 .contact-form-container button[type="submit"] {
-  background-color: #007bff;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .contact-form-container button[type="submit"]:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
-/* ----------------------------- */
-/* FOOTER */
-/* ----------------------------- */
 
-footer {
-  background-color: #1c1c1c;
-  color: white;
-  padding: 50px 20px;
-  margin-top: 40px;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 220px;
-  text-align: center;
-}
-
-.footer-section h3 {
-  font-size: 1.3rem;
-  margin-bottom: 14px;
-  color: white;
-}
-
-.footer-section:first-child {
-  max-width: 260px;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-footer ul li {
-  margin: 6px 0;
-}
-
-footer ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.2s ease-in-out;
-}
-
-footer ul li a:hover {
-  color: white;
-  padding-left: 4px;
-}
-
-footer p {
-  color: #ccc;
-  margin: 6px 0;
-}
-
-/* ----------------------------- */
-/* RESPONSIVE */
-/* ----------------------------- */
-
+/* Version téléphone/tablette */
 @media (max-width: 768px) {
-  .contact-layout {
-    flex-direction: column;
-  }
+    .contact-layout {
+        flex-direction: column;
+    }
 
-  .contact-info {
-    width: 100%;
-    border-right: none;
-    padding-right: 0;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-  }
-
-  .contact-form-container {
-    width: 100%;
-    padding-left: 0;
-    gap: 15px;
-  }
+    .contact-info {
+        width: 100%;
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid #ccc; 
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form-container {
+        width: 100%;
+        padding-left: 0;
+        gap: 15px;
+    }
 }
 
-.contact-info h2,
+.contact-info h2 {
+    color: #007bff;
+}
+
 .contact-form-container h2 {
-  color: #007bff;
+    color: #007bff;
 }
