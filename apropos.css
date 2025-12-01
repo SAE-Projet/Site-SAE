@@ -239,6 +239,15 @@ footer {
   color: white;
   padding: 50px 20px;
   margin-top: 40px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+footer * {
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .footer-container {
@@ -258,10 +267,16 @@ footer {
 .footer-section h3 {
   font-size: 1.3rem;
   margin-bottom: 14px;
+  color: white;
+}
+
+.footer-section:first-child {
+  max-width: 260px;
 }
 
 footer ul {
   list-style: none;
+  padding: 0;
 }
 
 footer ul li {
@@ -271,11 +286,12 @@ footer ul li {
 footer ul li a {
   color: #ccc;
   text-decoration: none;
+  transition: 0.2s ease-in-out;
 }
 
 footer ul li a:hover {
   color: white;
-  padding-left: 4px;
+  padding-left: 4px; 
 }
 
 footer p {
