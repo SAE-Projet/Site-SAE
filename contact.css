@@ -1,21 +1,16 @@
-/* ------------------------- */
-/* RESET + BASE */
-/* ------------------------- */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f7fbff, #effaf4);
+  background-attachment: fixed;
   color: #333;
 }
 
-/* ------------------------- */
-/* NAVIGATION */
-/* ------------------------- */
 nav {
   display: flex;
   justify-content: space-between;
@@ -23,7 +18,17 @@ nav {
   padding: clamp(6px, 1vw, 18px) clamp(12px, 2vw, 40px);
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex-wrap: nowrap;
+  overflow: hidden;
   width: 100%;
+  max-width: 100vw;
+}
+
+.cta button,
+.cta button:focus,
+.cta button:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .logo {
@@ -39,6 +44,7 @@ nav {
 
 .logo img {
   height: clamp(20px, 5vw, 70px);
+  width: auto;
 }
 
 .nav-links {
@@ -47,6 +53,8 @@ nav {
   flex: 1;
   gap: clamp(6px, 2vw, 30px);
   list-style: none;
+  white-space: nowrap;
+  transition: left 0.3s ease;
 }
 
 .nav-links li a {
@@ -54,19 +62,14 @@ nav {
   color: #1c95eb;
   font-weight: 500;
   font-size: clamp(8px, 1.4vw, 18px);
-  transition: color 0.3s;
 }
 
 .nav-links li a:hover {
   color: #0054ad;
 }
 
-.menu-cta,
-.nav-links .menu-header {
-  display: none;
-}
-
 .cta {
+  flex-shrink: 1;
   display: flex;
   justify-content: flex-end;
 }
@@ -74,9 +77,9 @@ nav {
 .cta button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  font-size: 16px;
+  gap: clamp(3px, 0.8vw, 8px);
+  padding: clamp(6px, 1.2vw, 14px) clamp(10px, 1.6vw, 20px);
+  font-size: clamp(8px, 1.3vw, 16px);
   background-color: #30ce27;
   color: #fff;
   border: none;
@@ -85,99 +88,71 @@ nav {
   font-weight: bold;
 }
 
-.cta button:hover {
-  background-color: #1aa813;
-}
-
 .cta button img {
-  height: 20px;
+  height: clamp(12px, 2vw, 28px);
+  width: auto;
 }
 
-/* ------------------------- */
-/* TITRE DE PAGE */
-/* ------------------------- */
-.apropos-header h2 {
-  font-size: 42px;
-  color: #007bff;
+.burger {
+  display: none;
+}
+
+.menu-cta,
+.nav-links .menu-header {
+  display: none;
+}
+
+section {
+  padding: 60px 6%;
+}
+
+h2 {
   text-align: center;
-  margin-top: 40px;
-  font-weight: 600;
+  color: #1c95eb;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
 }
 
-.apropos-header h2::after {
+h2::after {
   content: "";
   display: block;
-  width: 120px;
-  height: 5px;
-  margin: 12px auto;
+  width: 90px;
+  height: 4px;
   background: linear-gradient(90deg, #1c95eb, #30ce27);
-  border-radius: 5px;
-  animation: underline-grow 0.8s ease-out forwards;
-  transform: scaleX(0);
+  margin: 12px auto 0;
+  border-radius: 20px;
 }
 
-@keyframes underline-grow {
-  to {
-    transform: scaleX(1);
-  }
-}
-
-/* ------------------------- */
-/* SECTION APROPOS */
-/* ------------------------- */
 .apropos-section {
   display: flex;
   gap: 40px;
-  padding: 50px 7%;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .apropos-image img {
   width: 100%;
-  max-width: 420px;
+  max-width: 450px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .apropos-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #333;
   margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #2c7f1c;
+  line-height: 1.7;
 }
 
-/* ------------------------- */
-/* VIDEO */
-/* ------------------------- */
 .apropos-video iframe {
   width: 100%;
-  max-width: 750px;
-  height: 420px;
+  max-width: 700px;
+  height: 380px;
   border-radius: 16px;
   border: none;
   display: block;
-  margin: 30px auto;
-}
-
-/* ------------------------- */
-/* EQUIPE */
-/* ------------------------- */
-.equipe h2 {
-  font-size: 38px;
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
-.equipe h2::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 5px;
-  margin: 12px auto;
-  background: linear-gradient(90deg, #1c95eb, #30ce27);
-  border-radius: 5px;
+  margin: 40px auto 0;
 }
 
 .equipe-grid {
@@ -185,70 +160,50 @@ nav {
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
-  padding: 0 5%;
 }
 
 .membre {
-  background: white;
+  background: #fff;
   padding: 20px;
-  border-radius: 18px;
-  width: 260px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .membre img {
   width: 100%;
+  border-radius: 50%;
   height: 180px;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .membre h3 {
-  margin-top: 12px;
-  color: #1c95eb;
+  margin-top: 15px;
   font-size: 1.2rem;
+  color: #1c95eb;
 }
 
 .membre p {
   color: #30ce27;
-  font-size: 0.95rem;
+  margin: 5px 0;
 }
 
 .membre a {
+  color: #1c95eb;
   text-decoration: underline;
-  color: #007bff;
   font-size: 0.9rem;
-}
-
-/* ------------------------- */
-/* CTA FINAL */
-/* ------------------------- */
-.rejoindre h2 {
-  font-size: 38px;
-  text-align: center;
-  color: #007bff;
-  margin-top: 50px;
-}
-
-.rejoindre h2::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 5px;
-  margin: 12px auto;
-  background: linear-gradient(90deg, #1c95eb, #30ce27);
-  border-radius: 5px;
 }
 
 .cta-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin: 25px 0;
+  margin-bottom: 30px;
 }
 
 .cta-buttons .cta {
+  display: inline-block;
   background: #1c95eb;
   color: #fff;
   padding: 14px 28px;
@@ -263,15 +218,15 @@ nav {
 
 .cta-big {
   display: block;
-  margin: auto;
   width: fit-content;
+  margin: auto;
   padding: 16px 40px;
   background: linear-gradient(90deg, #1c95eb, #30ce27);
-  color: white;
-  border-radius: 50px;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  border-radius: 50px;
   font-size: 1.2rem;
+  font-weight: bold;
   transition: 0.3s;
 }
 
@@ -279,14 +234,11 @@ nav {
   transform: translateY(-3px);
 }
 
-/* ------------------------- */
-/* FOOTER */
-/* ------------------------- */
 footer {
   background-color: #1c1c1c;
   color: white;
   padding: 50px 20px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .footer-container {
@@ -303,27 +255,42 @@ footer {
   text-align: center;
 }
 
-/* ------------------------- */
-/* RESPONSIVE */
-/* ------------------------- */
-@media (max-width: 768px) {
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
 
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  margin: 6px 0;
+}
+
+footer ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: white;
+  padding-left: 4px;
+}
+
+footer p {
+  color: #ccc;
+  margin: 6px 0;
+}
+
+@media (max-width: 768px) {
   .apropos-section {
     flex-direction: column;
     text-align: center;
   }
 
-  .apropos-image img {
-    max-width: 330px;
-    margin: auto;
-  }
-
-  .equipe-grid .membre {
+  .membre {
     width: 90%;
-    max-width: 320px;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
+    max-width: 300px;
   }
 }
