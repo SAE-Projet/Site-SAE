@@ -527,6 +527,8 @@ nav {
 .commu-social img {
   width: 42px;
   height: 42px;
+  object-fit: contain; 
+  display: block;
 }
 
 .commu-cta {
