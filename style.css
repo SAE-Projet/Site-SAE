@@ -134,8 +134,7 @@ nav {
   padding: 80px 5%;
   background-color: #f8f9fa;
   gap: 50px;
-  max-width: 80%;
-  margin: 0 auto;
+  max-width: 95%;
 }
 
 .hero-top {
@@ -793,33 +792,39 @@ footer p {
   .menu-cta:hover {
     background-color: #1aa813;
   }
-
+  
   .hero {
-    max-width: 100%;
+    max-width: 100% !important;
+    padding: 40px 0; /* enlève les gros espaces latéraux */
   }
 
   .hero-top {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px; /* léger padding seulement */
   }
 
-  .hero-left img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
+  .hero-left,
+  .hero-right {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
   }
 
   .hero-right {
-    padding: 0 15px;
+    padding: 0 15px !important;
+  }
+
+  .hero-left img {
+    width: 95% !important; /* agrandit l'image */
+    max-width: 500px;
   }
 
   .hero-right h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .hero-right h2 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .hero-cta {
