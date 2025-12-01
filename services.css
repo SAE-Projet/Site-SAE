@@ -184,7 +184,7 @@ footer p {
   margin: 6px 0;
 }
 
-@media(max-width: 768px){
+@media (max-width: 768px){
   footer {
     padding: 20px 15px;
     text-align: center;
