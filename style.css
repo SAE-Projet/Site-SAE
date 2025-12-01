@@ -525,24 +525,25 @@ nav {
 }
 
 #insta-logo {
-    width: 30px;
-    height: auto;
+  width: 30px;
+  height: auto;
 }
 
 #whatsapp-logo {
-    width: 55px;
-    height: auto;
+  width: 55px;
+  height: auto;
 }
 
 #linkedin-logo {
-    width: 40px;
-    height: auto;
+  width: 40px;
+  height: auto;
 }
 
 .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
 }
 
 
@@ -567,7 +568,7 @@ nav {
 
 .commu-follow-text {
   font-size: clamp(14px, 1.3vw, 18px);
-  color: #30ce27;
+  color: #1c95eb;
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -585,7 +586,7 @@ nav {
   margin-top: 10px;
   font-size: 1rem;
   font-weight: 600;
-  color: #1c95eb;
+  color: #30ce27;
 }
 
 footer {
