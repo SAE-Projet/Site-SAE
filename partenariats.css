@@ -238,6 +238,15 @@ footer {
   color: white;
   padding: 50px 20px;
   margin-top: 40px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+footer * {
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .footer-container {
