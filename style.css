@@ -484,11 +484,11 @@ nav {
 }
 
 .arrow.left {
-  left: -60px;
+  left: 10px;
 }
 
 .arrow.right {
-  right: -60px;
+  right: 10px;
 }
 
 .commu {
@@ -840,8 +840,8 @@ footer p {
     margin: auto;
   }
 
-  .arrow.left { left: -20px; }
-  .arrow.right { right: -20px; }
+  .arrow.left { left: 5px; }
+  .arrow.right { right: 5px; }
 }
 
 .menu-overlay {
