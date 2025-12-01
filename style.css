@@ -539,6 +539,12 @@ nav {
     height: auto;
 }
 
+#insta-logo,
+#whatsapp-logo,
+#linkedin-logo {
+    vertical-align: middle; 
+}
+
 .commu-cta {
   display: flex;
   justify-content: center;
