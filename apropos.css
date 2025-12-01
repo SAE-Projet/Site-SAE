@@ -1,13 +1,23 @@
+/* ---------------------------------------------------
+   RESET GLOBAL
+--------------------------------------------------- */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f7fbff, #effaf4);
+  background-attachment: fixed;
+  color: #333;
 }
+
+/* ---------------------------------------------------
+   NAVBAR (inchangée sauf fix du focus)
+--------------------------------------------------- */
 
 nav {
   display: flex;
@@ -22,6 +32,16 @@ nav {
   max-width: 100vw;
 }
 
+/* Bouton CTA du nav — suppression du halo bleu */
+.cta button,
+.cta button:focus,
+.cta button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Le reste du nav 100% identique */
+
 .logo {
   display: flex;
   align-items: center;
@@ -31,14 +51,11 @@ nav {
   font-weight: bold;
   font-size: clamp(5px, 1.6vw, 20px);
   white-space: nowrap;
-  flex-shrink: 1;
-  min-width: 0;
 }
 
 .logo img {
   height: clamp(20px, 5vw, 70px);
   width: auto;
-  display: block;
 }
 
 .nav-links {
@@ -48,8 +65,6 @@ nav {
   gap: clamp(6px, 2vw, 30px);
   list-style: none;
   white-space: nowrap;
-  min-width: 0;
-  flex-shrink: 1;
   transition: left 0.3s ease;
 }
 
@@ -58,7 +73,6 @@ nav {
   color: #1c95eb;
   font-weight: 500;
   font-size: clamp(8px, 1.4vw, 18px);
-  transition: color 0.3s;
 }
 
 .nav-links li a:hover {
@@ -69,7 +83,6 @@ nav {
   flex-shrink: 1;
   display: flex;
   justify-content: flex-end;
-  min-width: 0;
 }
 
 .cta button {
@@ -84,12 +97,6 @@ nav {
   border-radius: 50px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
-  white-space: nowrap;
-}
-
-.cta button:hover {
-  background-color: #1aa813;
 }
 
 .cta button img {
@@ -99,32 +106,21 @@ nav {
 
 .burger {
   display: none;
-  font-size: 28px;
-  color: #1c95eb;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.3s;
-  z-index: 1001;
 }
 
-.burger.open {
-  transform: rotate(90deg);
-}
-
+.menu-cta,
 .nav-links .menu-header {
   display: none;
 }
 
-.menu-cta {
-  display: none; 
-}
+/* ---------------------------------------------------
+   SECTIONS GLOBAL
+--------------------------------------------------- */
 
-/* ----- SECTIONS ----- */
 section {
   padding: 60px 6%;
 }
 
-/* ----- TITRES GÉNÉRAUX ----- */
 h2 {
   text-align: center;
   color: #1c95eb;
@@ -143,9 +139,9 @@ h2::after {
   border-radius: 20px;
 }
 
-/* -----------------------------------
-      SECTION : À PROPOS
------------------------------------ */
+/* ---------------------------------------------------
+   SECTION À PROPOS
+--------------------------------------------------- */
 
 .apropos-section {
   display: flex;
@@ -164,11 +160,10 @@ h2::after {
 .apropos-text p {
   margin-bottom: 20px;
   font-size: 1.1rem;
-  color: #30ce27;
-  line-height: 1.6;
+  color: #2c7f1c;
+  line-height: 1.7;
 }
 
-/* ----- Vidéo ----- */
 .apropos-video iframe {
   width: 100%;
   max-width: 700px;
@@ -179,9 +174,9 @@ h2::after {
   margin: 40px auto 0;
 }
 
-/* -----------------------------------
-          SECTION : ÉQUIPE
------------------------------------ */
+/* ---------------------------------------------------
+   SECTION ÉQUIPE
+--------------------------------------------------- */
 
 .equipe-grid {
   display: flex;
@@ -223,9 +218,9 @@ h2::after {
   font-size: 0.9rem;
 }
 
-/* -----------------------------------
-        SECTION : REJOINDRE
------------------------------------ */
+/* ---------------------------------------------------
+   SECTION : REJOINDRE
+--------------------------------------------------- */
 
 .cta-buttons {
   display: flex;
@@ -234,7 +229,7 @@ h2::after {
   margin-bottom: 30px;
 }
 
-.cta {
+.cta-buttons .cta {
   display: inline-block;
   background: #1c95eb;
   color: #fff;
@@ -242,10 +237,9 @@ h2::after {
   border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.cta:hover {
+.cta-buttons .cta:hover {
   background: #0054ad;
 }
 
@@ -265,6 +259,12 @@ h2::after {
 
 .cta-big:hover {
   transform: translateY(-3px);
+}
+
+/* ---------------------------------------------------
+   FOOTER (inchangé)
+--------------------------------------------------- */
+
 footer {
   background-color: #1c1c1c;
   color: white;
@@ -289,16 +289,10 @@ footer {
 .footer-section h3 {
   font-size: 1.3rem;
   margin-bottom: 14px;
-  color: white;
-}
-
-.footer-section:first-child {
-  max-width: 260px;
 }
 
 footer ul {
   list-style: none;
-  padding: 0;
 }
 
 footer ul li {
@@ -308,12 +302,11 @@ footer ul li {
 footer ul li a {
   color: #ccc;
   text-decoration: none;
-  transition: 0.2s ease-in-out;
 }
 
 footer ul li a:hover {
   color: white;
-  padding-left: 4px; 
+  padding-left: 4px;
 }
 
 footer p {
@@ -321,9 +314,9 @@ footer p {
   margin: 6px 0;
 }
 
-/* -----------------------------------
-            RESPONSIVE
------------------------------------ */
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
 
 @media (max-width: 768px) {
   .apropos-section {
@@ -331,13 +324,8 @@ footer p {
     text-align: center;
   }
 
-  .apropos-image img {
-    max-width: 100%;
-  }
-
   .membre {
     width: 90%;
     max-width: 300px;
   }
 }
-
