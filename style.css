@@ -128,6 +128,8 @@ nav {
   padding: 80px 5%;
   background-color: #f8f9fa;
   gap: 50px;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .hero-top {
@@ -777,6 +779,10 @@ footer p {
     background-color: #1aa813;
   }
 
+  .hero {
+    max-width: 100%;
+  }
+
   .hero-top {
     flex-direction: column;
     text-align: center;
@@ -838,6 +844,11 @@ footer p {
 
   .info-cta {
     margin: auto;
+  }
+
+  .avis {
+    max-width: 80%;
+    margin: 0 auto;
   }
 
   .arrow.left { left: 5px; }
