@@ -777,6 +777,41 @@ footer p {
     background-color: #1aa813;
   }
 
+  .hero-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-left img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  .hero-right {
+    padding: 0 15px;
+  }
+
+  .hero-right h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-right h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .hero-cta button {
+    width: 100%;
+  }
+
   .infos-content {
     flex-direction: column;
     text-align: center;
