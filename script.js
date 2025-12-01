@@ -79,6 +79,8 @@ const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 
 let index = 0;
+let autoSlide;
+
 if (carousel) {
   const avisCount = carousel.children.length;
 
@@ -86,13 +88,33 @@ if (carousel) {
     carousel.style.transform = `translateX(-${index * 100}%)`;
   }
 
-  next.addEventListener("click", () => {
+  function nextSlide() {
     index = (index + 1) % avisCount;
     updateCarousel();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + avisCount) % avisCount;
+    updateCarousel();
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, 5000);
+  }
+
+  // 👉 Clic sur flèche = change + reset de l'autoplay
+  next.addEventListener("click", () => {
+    nextSlide();
+    resetAutoplay();
   });
 
   prev.addEventListener("click", () => {
-    index = (index - 1 + avisCount) % avisCount;
-    updateCarousel();
+    prevSlide();
+    resetAutoplay();
   });
+
+  resetAutoplay();
 }
+
+
