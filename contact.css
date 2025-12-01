@@ -305,24 +305,40 @@ footer p {
 
 /* Version téléphone/tablette */
 @media (max-width: 768px) {
-    .contact-layout {
-        flex-direction: column;
-    }
+  .contact-layout {
+      flex-direction: column;
+  }
+  
+  .contact-info {
+      width: 100%;
+      border-right: none;
+      padding-right: 0;
+      border-bottom: 1px solid #ccc; 
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+  }
+  
+  .contact-form-container {
+      width: 100%;
+      padding-left: 0;
+      gap: 15px;
+  }
+  
+  footer {
+    padding: 20px 15px;
+    text-align: center;
+  }
 
-    .contact-info {
-        width: 100%;
-        border-right: none;
-        padding-right: 0;
-        border-bottom: 1px solid #ccc; 
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .contact-form-container {
-        width: 100%;
-        padding-left: 0;
-        gap: 15px;
-    }
+  footer .footer-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  footer img {
+    max-width: 150px;
+    height: auto;
+  }
 }
 
 .contact-info h2 {
