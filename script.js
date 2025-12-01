@@ -73,7 +73,6 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.separator-line').forEach(line => {
   observer.observe(line);
 });
-
 const carousel = document.getElementById("carousel");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
@@ -103,7 +102,6 @@ if (carousel) {
     autoSlide = setInterval(nextSlide, 5000);
   }
 
-  // 👉 Clic sur flèche = change + reset de l'autoplay
   next.addEventListener("click", () => {
     nextSlide();
     resetAutoplay();
@@ -113,8 +111,36 @@ if (carousel) {
     prevSlide();
     resetAutoplay();
   });
+  let startX = 0;
+  let isSwiping = false;
+
+  carousel.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+    clearInterval(autoSlide); 
+  });
+
+  carousel.addEventListener("touchmove", (e) => {
+    if (!isSwiping) return;
+
+    let currentX = e.touches[0].clientX;
+    let diff = startX - currentX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide(); 
+      } else {
+        prevSlide();
+      }
+
+      isSwiping = false;
+    }
+  });
+
+  carousel.addEventListener("touchend", () => {
+    isSwiping = false;
+    resetAutoplay(); 
+  });
 
   resetAutoplay();
 }
-
-
