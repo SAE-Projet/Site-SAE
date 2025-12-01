@@ -309,4 +309,20 @@ footer p {
     width: 90%;
     max-width: 300px;
   }
+
+  footer {
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  footer .footer-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  footer img {
+    max-width: 150px;
+    height: auto;
+  }
 }
