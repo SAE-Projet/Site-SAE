@@ -9,6 +9,12 @@ body {
   background-color: #f8f9fa;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -597,6 +603,15 @@ footer {
   color: white;
   padding: 50px 20px;
   margin-top: 40px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+footer * {
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .footer-container {
@@ -853,6 +868,22 @@ footer p {
 
   .arrow.left { left: 5px; }
   .arrow.right { right: 5px; }
+
+  footer {
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  footer .footer-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  footer img {
+    max-width: 150px;
+    height: auto;
+  }
 }
 
 .menu-overlay {
