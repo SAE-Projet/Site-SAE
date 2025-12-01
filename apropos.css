@@ -1,7 +1,3 @@
-/* ---------------------------------------------------
-   RESET GLOBAL
---------------------------------------------------- */
-
 * {
   margin: 0;
   padding: 0;
@@ -14,10 +10,6 @@ body {
   background-attachment: fixed;
   color: #333;
 }
-
-/* ---------------------------------------------------
-   NAVBAR (inchangée sauf fix du focus)
---------------------------------------------------- */
 
 nav {
   display: flex;
@@ -32,15 +24,12 @@ nav {
   max-width: 100vw;
 }
 
-/* Bouton CTA du nav — suppression du halo bleu */
 .cta button,
 .cta button:focus,
 .cta button:active {
   outline: none !important;
   box-shadow: none !important;
 }
-
-/* Le reste du nav 100% identique */
 
 .logo {
   display: flex;
@@ -113,10 +102,6 @@ nav {
   display: none;
 }
 
-/* ---------------------------------------------------
-   SECTIONS GLOBAL
---------------------------------------------------- */
-
 section {
   padding: 60px 6%;
 }
@@ -138,10 +123,6 @@ h2::after {
   margin: 12px auto 0;
   border-radius: 20px;
 }
-
-/* ---------------------------------------------------
-   SECTION À PROPOS
---------------------------------------------------- */
 
 .apropos-section {
   display: flex;
@@ -173,10 +154,6 @@ h2::after {
   display: block;
   margin: 40px auto 0;
 }
-
-/* ---------------------------------------------------
-   SECTION ÉQUIPE
---------------------------------------------------- */
 
 .equipe-grid {
   display: flex;
@@ -218,10 +195,6 @@ h2::after {
   font-size: 0.9rem;
 }
 
-/* ---------------------------------------------------
-   SECTION : REJOINDRE
---------------------------------------------------- */
-
 .cta-buttons {
   display: flex;
   justify-content: center;
@@ -260,10 +233,6 @@ h2::after {
 .cta-big:hover {
   transform: translateY(-3px);
 }
-
-/* ---------------------------------------------------
-   FOOTER (inchangé)
---------------------------------------------------- */
 
 footer {
   background-color: #1c1c1c;
@@ -313,10 +282,6 @@ footer p {
   color: #ccc;
   margin: 6px 0;
 }
-
-/* ---------------------------------------------------
-   RESPONSIVE
---------------------------------------------------- */
 
 @media (max-width: 768px) {
   .apropos-section {
