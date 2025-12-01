@@ -565,6 +565,13 @@ nav {
   white-space: nowrap;
 }
 
+.commu-follow-text {
+  font-size: clamp(14px, 1.3vw, 18px);
+  color: #30ce27;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
 .btn-logement {
   background: #1c95eb;
   color: #fff;
@@ -572,17 +579,6 @@ nav {
 
 .btn-logement:hover {
   background: #0054ad;
-}
-
-.btn-reseaux {
-  background: #E6E1D9;
-  color: #1c95eb;
-  border: 2px solid #1c95eb;
-}
-
-.btn-reseaux:hover {
-  background: #1c95eb;
-  color: #fff;
 }
 
 .commu-stats {
