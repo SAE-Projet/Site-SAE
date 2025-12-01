@@ -265,6 +265,60 @@ h2::after {
 
 .cta-big:hover {
   transform: translateY(-3px);
+footer {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 50px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: white;
+}
+
+.footer-section:first-child {
+  max-width: 260px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: 6px 0;
+}
+
+footer ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+footer ul li a:hover {
+  color: white;
+  padding-left: 4px; 
+}
+
+footer p {
+  color: #ccc;
+  margin: 6px 0;
 }
 
 /* -----------------------------------
