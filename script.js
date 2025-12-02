@@ -141,15 +141,3 @@ if (carousel) {
 
   resetAutoplay();
 }
-
-// ✅ Effet zoom sur l'image du hero au scroll
-const heroImg = document.querySelector('.hero-left img');
-
-if (heroImg) {
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxZoom = 1.05; // Zoom max 105%
-    const zoom = 1 + Math.min(scrollY / 1000, maxZoom - 1); 
-    heroImg.style.transform = `scale(${zoom})`;
-  });
-}
