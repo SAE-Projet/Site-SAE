@@ -23,28 +23,35 @@ navLinks?.querySelectorAll('a').forEach(link => {
   });
 });
 
-donCard.addEventListener("click", () => {
-  modalImage.src = donCard.dataset.image;
-  modalTitle.textContent = donCard.dataset.title;
-  modalLocalisation.textContent = donCard.dataset.localisation;
-  modalDescription.textContent = donCard.dataset.description;
-  modalContact.textContent = donCard.dataset.contact;
 
-  modal.classList.add("active");
+const compteurs = document.querySelectorAll('.compteur');
 
-  const separators = document.querySelectorAll('.separator');
-  separators.forEach((sep, index) => {
-    setTimeout(() => {
-      sep.classList.add('active');
-    }, 120 * index);
-  });
+compteurs.forEach(compteur => {
+  const target = +compteur.dataset.target;
+  let count = 0;
+  const increment = Math.ceil(target / 200);
+
+  const update = () => {
+    count += increment;
+    if (count >= target) count = target;
+    compteur.textContent = count;
+    if (count < target) requestAnimationFrame(update);
+  };
+
+  update();
 });
 
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("active");
+const separator = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.transform = "scaleX(1)";
+      separator.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
 
-  const separators = document.querySelectorAll('.separator');
-  separators.forEach(sep => sep.classList.remove('active'));
+document.querySelectorAll('.separator-line').forEach(line => {
+  separator.observe(line);
 });
 
 const donCarousel = document.getElementById("donCarousel");
@@ -82,5 +89,6 @@ closeModal.addEventListener("click", () => {
 donModal.addEventListener("click", e => {
   if (e.target === donModal) donModal.classList.remove("active");
 });
+
 
 
