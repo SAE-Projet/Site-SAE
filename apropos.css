@@ -165,7 +165,7 @@ h2::after {
   gap: 30px;
   flex-wrap: nowrap;
   align-items: stretch; 
-  width: 100%;
+  width: auto;
   margin: 30px 60px;
 }
 
@@ -211,10 +211,6 @@ h2::after {
 .text-part2 p strong {
   color: #1c95eb;
   transition: color 0.3s ease;
-}
-
-.text-part2 p strong:hover {
-  color: #30ce27;
 }
 
 .apropos-row .apropos-video {
