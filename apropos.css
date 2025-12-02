@@ -157,7 +157,7 @@ h2::after {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   color: #2c7f1c;
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.6;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -196,7 +196,7 @@ h2::after {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   color: #2c7f1c;
-  font-size: 1rem;
+  font-size: 1.10rem;
   line-height: 1.6;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
