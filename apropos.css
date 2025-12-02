@@ -216,9 +216,14 @@ h2::after {
   color: #30ce27;
 }
 
-.apropos-video {
-  flex: 1;
-  min-width: 300px;
+.apropos-row .apropos-video {
+  flex: 0 0 auto;
+  max-width: 700px;
+}
+
+.text-part2 {
+  flex: 1; 
+  font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
 .apropos-video iframe {
