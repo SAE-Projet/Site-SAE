@@ -32,13 +32,19 @@ donCard.addEventListener("click", () => {
 
   modal.classList.add("active");
 
-  // Animation des lignes
   const separators = document.querySelectorAll('.separator');
   separators.forEach((sep, index) => {
     setTimeout(() => {
       sep.classList.add('active');
     }, 120 * index);
   });
+});
+
+modalClose.addEventListener("click", () => {
+  modal.classList.remove("active");
+
+  const separators = document.querySelectorAll('.separator');
+  separators.forEach(sep => sep.classList.remove('active'));
 });
 
 const donCarousel = document.getElementById("donCarousel");
@@ -76,4 +82,5 @@ closeModal.addEventListener("click", () => {
 donModal.addEventListener("click", e => {
   if (e.target === donModal) donModal.classList.remove("active");
 });
+
 
