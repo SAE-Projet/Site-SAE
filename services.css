@@ -279,7 +279,7 @@ nav {
 
 .don-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 220px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 10px;
@@ -416,11 +416,11 @@ nav {
 }
 
 .don-modal-content {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
+  max-width: 360px !important;
   width: 90%;
-  max-width: 420px;
+  border-radius: 16px;
+  padding: 20px;
+  background: white;
   text-align: center;
   animation: popup 0.25s ease;
 }
@@ -432,8 +432,9 @@ nav {
 
 .don-modal-content img {
   width: 100%;
+  height: 260px; 
+  object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 15px;
 }
 
 .don-modal-close {
@@ -443,6 +444,14 @@ nav {
   font-size: 32px;
   cursor: pointer;
   color: white;
+}
+
+.don-modal-content h2 {
+  font-size: 20px;
+}
+
+.don-modal-content p {
+  font-size: 14px;
 }
 
 .sales-purchases .cta-container {
