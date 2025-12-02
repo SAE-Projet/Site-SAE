@@ -139,7 +139,7 @@ h2::after {
 /* Première ligne : image + texte */
 .apropos-image {
   flex: 1;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .apropos-image img {
