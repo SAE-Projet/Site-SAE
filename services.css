@@ -491,6 +491,19 @@ nav {
   background-color: #1aa813;
 }
 
+.separator {
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1c95eb, #30ce27);
+  margin: 10px auto;
+  border-radius: 4px;
+  transition: width .45s ease;
+}
+
+.separator.active {
+  width: 80%;
+}
+
 footer {
   background-color: #1c1c1c;
   color: white;
