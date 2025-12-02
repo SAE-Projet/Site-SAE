@@ -221,25 +221,25 @@ h2::after {
   transition: color 0.3s ease;
 }
 
-.apropos-row .apropos-video {
-  flex: 0 0 auto;
-  max-width: 700px;
-}
-
 .text-part2 {
   flex: 1; 
   font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
+.apropos-video {
+  flex: 0 0 auto;
+  max-width: 900px; 
+  width: 100%;
+}
+
 .apropos-video iframe {
   width: 100%;
-  max-width: 700px;
-  height: 380px;
+  max-width: 900px; 
+  height: 500px; 
   border-radius: 16px;
   border: none;
 }
 
-/* --- Section Notre équipe --- */
 .equipe-grid {
   display: flex;
   justify-content: center;
