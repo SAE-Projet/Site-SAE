@@ -53,6 +53,7 @@ const separator = new IntersectionObserver(entries => {
 document.querySelectorAll('.separator-line').forEach(line => {
   separator.observe(line);
 });
+
 (function() {
   const carousel = document.getElementById('donCarousel');
   const leftArrow = document.getElementById('leftArrow');
@@ -62,10 +63,8 @@ document.querySelectorAll('.separator-line').forEach(line => {
 
   let cardGap = 20; // fallback
   const cs = window.getComputedStyle(carousel);
-  // read gap (some browsers use 'gap', fallback to columnGap)
   cardGap = parseFloat(cs.gap || cs.columnGap) || cardGap;
 
-  // wait images loaded & layout stable
   function init() {
     const cards = Array.from(carousel.querySelectorAll('.don-card'));
     if (cards.length === 0) return;
@@ -80,125 +79,121 @@ document.querySelectorAll('.separator-line').forEach(line => {
 
     // recompute cards after clones
     const allCards = Array.from(carousel.querySelectorAll('.don-card'));
-    const cardWidth = allCards[1].getBoundingClientRect().width; // the first real card now at index 1
+    const cardWidth = allCards[1].getBoundingClientRect().width; // first real card now at index 1
 
-    // helper to set scroll (instant)
+    // state
+    let isJumping = false;
+    let scrollTimeout;
+
     function setScrollLeftInstant(pos) {
+      // lock to avoid responding to scroll events while jumping
+      isJumping = true;
       carousel.style.scrollBehavior = 'auto';
       carousel.scrollLeft = pos;
-      // restore smooth a short time after (use next tick)
+      // restore smooth behavior and release lock soon after
       requestAnimationFrame(() => {
         carousel.style.scrollBehavior = 'smooth';
+        // small delay to allow subsequent natural scroll events to settle
+        setTimeout(() => { isJumping = false; }, 80);
       });
     }
 
-    // position at first real card
+    // center first real card initially
     setScrollLeftInstant(cardWidth + cardGap);
 
-    // arrow handlers: move by cardWidth + gap
-    function move(diff) {
-      carousel.scrollBy({ left: diff, behavior: 'smooth' });
+    function moveByCard(n = 1) {
+      if (isJumping) return;
+      carousel.scrollBy({ left: (cardWidth + cardGap) * n, behavior: 'smooth' });
     }
 
-    leftArrow.addEventListener('click', () => move(-(cardWidth + cardGap)));
-    rightArrow.addEventListener('click', () => move(cardWidth + cardGap));
+    leftArrow.addEventListener('click', () => moveByCard(-1));
+    rightArrow.addEventListener('click', () => moveByCard(1));
 
-    // touch swipe (drag)
+    // pointer drag support
     let isDown = false;
-    let startX;
-    let scrollStart;
+    let startX = 0;
+    let scrollStart = 0;
 
     carousel.addEventListener('pointerdown', (e) => {
       isDown = true;
       startX = e.clientX;
       scrollStart = carousel.scrollLeft;
       carousel.style.cursor = 'grabbing';
-      carousel.setPointerCapture(e.pointerId);
+      carousel.setPointerCapture && carousel.setPointerCapture(e.pointerId);
     });
     carousel.addEventListener('pointermove', (e) => {
       if (!isDown) return;
       const dx = startX - e.clientX;
       carousel.scrollLeft = scrollStart + dx;
     });
-    carousel.addEventListener('pointerup', (e) => {
+    function endPointer(e) {
       if (!isDown) return;
       isDown = false;
       carousel.style.cursor = '';
-      // snap to nearest card after pointer up
       snapToNearest();
-    });
-    carousel.addEventListener('pointercancel', () => {
-      isDown = false;
-      carousel.style.cursor = '';
-      snapToNearest();
-    });
+    }
+    carousel.addEventListener('pointerup', endPointer);
+    carousel.addEventListener('pointercancel', endPointer);
 
-    // snapping: compute nearest index and scroll to center that card
+    // snapping to nearest card (center)
     function snapToNearest() {
-      const scroll = carousel.scrollLeft;
-      // Determine index among allCards where card left position is minimal distance to viewport center
-      let closestIndex = 0;
-      let closestDist = Infinity;
       const center = carousel.clientWidth / 2;
+      let closest = { idx: 0, dist: Infinity };
       allCards.forEach((c, i) => {
         const rect = c.getBoundingClientRect();
-        // card center relative to carousel left
         const cardCenter = rect.left - carousel.getBoundingClientRect().left + rect.width / 2;
         const dist = Math.abs(cardCenter - center);
-        if (dist < closestDist) {
-          closestDist = dist;
-          closestIndex = i;
+        if (dist < closest.dist) {
+          closest = { idx: i, dist };
         }
       });
-      // scroll so chosen card is centered
-      const targetCard = allCards[closestIndex];
-      const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
+      const target = allCards[closest.idx];
+      const targetLeft = target.offsetLeft + (target.offsetWidth / 2) - carousel.clientWidth / 2;
       carousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
     }
 
-    // loop detection: if we reach clones, jump to corresponding real card
-    let scrollEndTimer;
+    // loop detection: jump when at clones
     carousel.addEventListener('scroll', () => {
-      clearTimeout(scrollEndTimer);
-      scrollEndTimer = setTimeout(() => {
+      if (isJumping) return; // ignore while we're programmatically jumping
+
+      // debounce end-of-scroll checks
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
         const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        // if scrolled to very left (we are at lastClone)
-        if (carousel.scrollLeft <= 10) {
-          // jump to last real card position
-          const lastRealIndex = allCards.length - 2; // because first is lastClone, last is firstClone
+        // if we're very close to the left edge (we are on lastClone)
+        if (carousel.scrollLeft <= 5) {
+          // jump to last real card
+          const lastRealIndex = allCards.length - 2;
           const targetCard = allCards[lastRealIndex];
           const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
           setScrollLeftInstant(targetLeft);
         }
-        // if scrolled to very right (we are at firstClone)
-        else if (carousel.scrollLeft >= maxScroll - 10) {
-          // jump to first real card
+        // if we're very close to the right edge (we are on firstClone)
+        else if (carousel.scrollLeft >= maxScroll - 5) {
           const firstRealIndex = 1;
           const targetCard = allCards[firstRealIndex];
           const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
           setScrollLeftInstant(targetLeft);
         }
-      }, 80);
+      }, 60);
     });
 
-    // optional: keyboard navigation
+    // keyboard
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') leftArrow.click();
-      if (e.key === 'ArrowRight') rightArrow.click();
+      if (e.key === 'ArrowLeft') moveByCard(-1);
+      if (e.key === 'ArrowRight') moveByCard(1);
     });
 
-    // on resize recompute cardWidth & reposition to nearest real
+    // on resize, snap to nearest real card after layout stabilizes
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        // recompute and snap
         snapToNearest();
       }, 150);
     });
   }
 
-  // ensure images loaded before measuring: wait window load
   if (document.readyState === 'complete') init();
   else window.addEventListener('load', init);
 })();
