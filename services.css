@@ -237,6 +237,8 @@ nav {
 }
 
 .don-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   gap: 20px;
   overflow-x: auto;
@@ -258,6 +260,8 @@ nav {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   cursor: pointer;
   transition: transform .2s;
+  scroll-snap-align: center;
+  flex: 0 0 auto; 
 }
 
 .don-card:hover {
@@ -389,7 +393,7 @@ nav {
   width: 150px;
   height: 100%;
   pointer-events: none;
-  z-index: 20;
+  z-index: 30;
 }
 
 .fade-left {
