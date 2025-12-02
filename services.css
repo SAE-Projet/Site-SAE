@@ -205,6 +205,10 @@ nav {
   text-align: center;
 }
 
+.don-section h2 {
+  color: #1c95eb !important;
+}
+
 .don-search-filter {
   margin: 20px auto;
   display: flex;
@@ -252,12 +256,47 @@ nav {
   transform: scale(1.04);
 }
 
+.don-card h3 {
+  color: #1c95eb;
+  font-size: 19px;
+  margin-top: 8px;
+}
+
+.don-card .localisation {
+  color: #30ce27;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
 .don-img {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 10px;
+  display: block;
+}
+
+#modalTitle {
+  color: #1c95eb;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#modalLocalisation {
+  color: #30ce27;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+#modalDescription,
+#modalContact {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
 .don-arrow {
