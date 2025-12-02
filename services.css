@@ -386,9 +386,10 @@ nav {
 .fade-left, .fade-right {
   position: absolute;
   top: 0;
-  width: 120px;
+  width: 150px;
   height: 100%;
   pointer-events: none;
+  z-index: 20;
 }
 
 .fade-left {
