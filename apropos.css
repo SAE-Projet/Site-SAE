@@ -165,8 +165,8 @@ h2::after {
   gap: 30px;
   flex-wrap: nowrap;
   align-items: stretch; 
-  width: auto;
-  margin: 30px 60px;
+  width: 90%;
+  margin: 30px 0px;
 }
 
 /* Première ligne : image + texte */
