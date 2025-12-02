@@ -166,7 +166,7 @@ h2::after {
   gap: 40px;
   flex-wrap: wrap;
   margin-bottom: 60px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 /* Première ligne : image + texte */
