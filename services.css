@@ -230,6 +230,17 @@ nav {
   scroll-snap-align: center;
   transition: transform 0.3s ease;
   text-align: center;
+  height: 420px;               
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.don-card p {
+  flex-grow: 1;
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 
 .don-carousel:active .don-card {
