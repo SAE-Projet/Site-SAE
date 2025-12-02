@@ -278,6 +278,59 @@ nav {
 .don-arrow.left { left: 10px; }
 .don-arrow.right { right: 10px; }
 
+.cards-container {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 15px;
+  width: 300px;
+  height: 430px; /* même hauteur */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card .carousel {
+  width: 100%;
+  height: 180px;
+  background: #e9ecef;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card h3 {
+  margin: 10px 0 6px;
+  color: #1c95eb;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.card::after {
+  content: "↓";
+  font-size: 22px;
+  color: #30ce27;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .fade-left, .fade-right {
   position: absolute;
   top: 0;
