@@ -221,6 +221,10 @@ nav {
   font-size: 16px;
 }
 
+.don-modal-content {
+  animation: popup 0.25s ease;
+}
+
 .don-carousel-wrapper {
   position: relative;
   width: 100%;
