@@ -173,6 +173,8 @@ h2::after {
 .apropos-image {
   flex: 1;
   min-width: 300px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .apropos-image img {
