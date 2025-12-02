@@ -23,6 +23,23 @@ navLinks?.querySelectorAll('a').forEach(link => {
   });
 });
 
+donCard.addEventListener("click", () => {
+  modalImage.src = donCard.dataset.image;
+  modalTitle.textContent = donCard.dataset.title;
+  modalLocalisation.textContent = donCard.dataset.localisation;
+  modalDescription.textContent = donCard.dataset.description;
+  modalContact.textContent = donCard.dataset.contact;
+
+  modal.classList.add("active");
+
+  // Animation des lignes
+  const separators = document.querySelectorAll('.separator');
+  separators.forEach((sep, index) => {
+    setTimeout(() => {
+      sep.classList.add('active');
+    }, 120 * index);
+  });
+});
 
 const donCarousel = document.getElementById("donCarousel");
 const leftArrow = document.getElementById("leftArrow");
@@ -59,3 +76,4 @@ closeModal.addEventListener("click", () => {
 donModal.addEventListener("click", e => {
   if (e.target === donModal) donModal.classList.remove("active");
 });
+
