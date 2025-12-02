@@ -167,14 +167,14 @@ h2::after {
   flex-wrap: wrap;
   margin-bottom: 60px;
   align-items: stretch;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 /* Première ligne : image + texte */
 .apropos-image {
   flex: 1;
   min-width: 300px;
-  margin-left: 40px;
-  margin-right: 40px;
 }
 
 .apropos-image img {
