@@ -200,10 +200,27 @@ nav {
   box-shadow: 0 0 8px rgba(48, 206, 39, 0.3);
 }
 
+.don-section {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.don-search-filter {
+  margin: 20px auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.don-search, .don-filter {
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
 .don-carousel-wrapper {
   position: relative;
   width: 100%;
-  margin: 40px auto;
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -211,9 +228,9 @@ nav {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 20px;
   scroll-behavior: smooth;
+  padding: 20px;
+  scrollbar-width: none;
 }
 
 .don-carousel::-webkit-scrollbar {
@@ -221,84 +238,62 @@ nav {
 }
 
 .don-card {
-  flex: 0 0 70%;
-  max-width: 300px;
+  min-width: 260px;
+  max-width: 260px;
   background: white;
-  padding: 16px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  scroll-snap-align: center;
-  transition: transform 0.3s ease;
-  text-align: center;
-  height: 420px;               
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform .2s;
 }
 
-.don-card p {
-  flex-grow: 1;
-  overflow: hidden; 
-  text-overflow: ellipsis;
+.don-card:hover {
+  transform: scale(1.04);
 }
 
-.don-carousel:active .don-card {
-  cursor: grabbing;
-}
-
-.don-card img {
+.don-img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .don-arrow {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
-  z-index: 30;
   background: white;
-  border: none;
-  font-size: 22px;
-  padding: 8px 12px;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
   cursor: pointer;
-  transition: 0.2s;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.don-arrow:hover {
-  background: #e8f4ff;
-}
-
-.don-arrow.left {
-  left: 10px;
-}
-
-.don-arrow.right {
-  right: 10px;
-}
+.don-arrow.left { left: 10px; }
+.don-arrow.right { right: 10px; }
 
 .fade-left, .fade-right {
   position: absolute;
   top: 0;
-  width: 80px;
+  width: 120px;
   height: 100%;
   pointer-events: none;
-  z-index: 10;
 }
 
 .fade-left {
   left: 0;
-  background: linear-gradient(to right, rgba(248,249,250,1), rgba(248,249,250,0));
+  background: linear-gradient(to right, white, transparent);
 }
 
 .fade-right {
   right: 0;
-  background: linear-gradient(to left, rgba(248,249,250,1), rgba(248,249,250,0));
+  background: linear-gradient(to left, white, transparent);
 }
 
 .don-card.centered {
