@@ -246,8 +246,8 @@ nav {
 }
 
 .don-card {
-  min-width: 260px;
-  max-width: 260px;
+  min-width: 200px;
+  max-width: 450px;
   background: white;
   border-radius: 14px;
   padding: 12px;
