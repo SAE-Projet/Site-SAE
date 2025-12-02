@@ -255,6 +255,33 @@ nav {
   margin-bottom: 12px;
 }
 
+.don-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  background: white;
+  border: none;
+  font-size: 22px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.don-arrow:hover {
+  background: #e8f4ff;
+}
+
+.don-arrow.left {
+  left: 10px;
+}
+
+.don-arrow.right {
+  right: 10px;
+}
+
 .fade-left, .fade-right {
   position: absolute;
   top: 0;
