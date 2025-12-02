@@ -350,25 +350,6 @@ nav {
   color: white;
 }
 
-.scroll-page {
-  display: block;
-  margin: 40px auto 0;
-  padding: 12px 30px;
-  border-radius: 50px;
-  border: none;
-  background: linear-gradient(90deg, #1c95eb, #30ce27);
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.scroll-page:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-}
-
 .sales-purchases .cta-container {
   display: flex;
   justify-content: center;
