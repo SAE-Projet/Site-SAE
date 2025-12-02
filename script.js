@@ -74,9 +74,6 @@ document.querySelectorAll('.separator-line').forEach(line => {
   separator.observe(line);
 });
 
-
-/* ----------------- DON CAROUSEL (NOUVEAUX NOMS) ----------------- */
-
 const donCarousel = document.getElementById('donCarousel');
 const leftArrow = document.getElementById('leftArrow');
 const rightArrow = document.getElementById('rightArrow');
@@ -89,39 +86,34 @@ rightArrow.onclick = () => {
   donCarousel.scrollBy({ left: 250, behavior: "smooth" });
 };
 
+const donCar = document.getElementById("donCarousel");
+document.getElementById("leftArrow").onclick = () => {
+  donCar.scrollBy({ left: -300, behavior: "smooth" });
+};
+document.getElementById("rightArrow").onclick = () => {
+  donCar.scrollBy({ left: 300, behavior: "smooth" });
+};
 
-/* ----------------- MODAL DES CARTES ----------------- */
-
-const donCards = document.querySelectorAll('.don-card');
-const donModal = document.getElementById('donModal');
-const closeModal = document.querySelector('.don-modal-close');
+const donCards = document.querySelectorAll(".don-card");
+const donModal = document.getElementById("donModal");
+const closeModal = document.querySelector(".don-modal-close");
 
 donCards.forEach(card => {
-  card.addEventListener('click', () => {
+  card.addEventListener("click", () => {
     document.getElementById("modalImage").src = card.dataset.image;
     document.getElementById("modalTitle").textContent = card.dataset.title;
     document.getElementById("modalLocalisation").textContent = "📍 " + card.dataset.localisation;
     document.getElementById("modalDescription").textContent = card.dataset.description;
     document.getElementById("modalContact").textContent = card.dataset.contact;
 
-    donModal.classList.add('active');
+    donModal.classList.add("active");
   });
 });
 
-closeModal?.addEventListener('click', () => {
-  donModal.classList.remove('active');
+closeModal.addEventListener("click", () => {
+  donModal.classList.remove("active");
 });
 
-donModal?.addEventListener('click', (e) => {
-  if (e.target === donModal) donModal.classList.remove('active');
+donModal.addEventListener("click", (e) => {
+  if (e.target === donModal) donModal.classList.remove("active");
 });
-
-const heroText = document.querySelector('.hero-right');
-
-if (heroText) {
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    heroText.style.transform = `translateY(${scroll * 0.1}px)`;
-    heroText.style.opacity = `${1 - scroll / 1000}`;
-  });
-}
