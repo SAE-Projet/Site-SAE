@@ -491,17 +491,16 @@ nav {
   background-color: #1aa813;
 }
 
-.separator {
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #1c95eb, #30ce27);
-  margin: 10px auto;
-  border-radius: 4px;
-  transition: width .45s ease;
-}
-
-.separator.active {
+.separator-line {
   width: 80%;
+  max-width: 1200px;
+  height: 3px;
+  background: linear-gradient(90deg, #1c95eb, #30ce27, #1c95eb); 
+  margin: 40px auto;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease-out;
 }
 
 footer {
