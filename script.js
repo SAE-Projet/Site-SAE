@@ -38,12 +38,12 @@ window.addEventListener('resize', () => {
   }
 });
 
+// Compteurs animés
 const compteurs = document.querySelectorAll('.compteur');
 
 compteurs.forEach(compteur => {
   const target = +compteur.getAttribute('data-target');
   let count = 0;
-
   const increment = Math.ceil(target / 200);
 
   const updateCounter = () => {
@@ -59,20 +59,21 @@ compteurs.forEach(compteur => {
   updateCounter();
 });
 
-const separator = document.querySelector('.separator-line');
-
-const observer = new IntersectionObserver(entries => {
+// Animation ligne séparatrice
+const separator = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.transform = 'scaleX(1)';  
-      observer.unobserve(entry.target);
+      entry.target.style.transform = 'scaleX(1)';
+      separator.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.separator-line').forEach(line => {
-  observer.observe(line);
+  separator.observe(line);
 });
+
+// Carousel
 const carousel = document.getElementById("carousel");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
@@ -111,36 +112,44 @@ if (carousel) {
     prevSlide();
     resetAutoplay();
   });
+
   let startX = 0;
   let isSwiping = false;
 
   carousel.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isSwiping = true;
-    clearInterval(autoSlide); 
+    clearInterval(autoSlide);
   });
 
   carousel.addEventListener("touchmove", (e) => {
     if (!isSwiping) return;
-
     let currentX = e.touches[0].clientX;
     let diff = startX - currentX;
 
     if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        nextSlide(); 
-      } else {
-        prevSlide();
-      }
-
+      if (diff > 0) nextSlide();
+      else prevSlide();
       isSwiping = false;
     }
   });
 
   carousel.addEventListener("touchend", () => {
     isSwiping = false;
-    resetAutoplay(); 
+    resetAutoplay();
   });
 
   resetAutoplay();
+}
+
+// ✅ Effet zoom sur l'image du hero au scroll
+const heroImg = document.querySelector('.hero-left img');
+
+if (heroImg) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const maxZoom = 1.05; // Zoom max 105%
+    const zoom = 1 + Math.min(scrollY / 1000, maxZoom - 1); 
+    heroImg.style.transform = `scale(${zoom})`;
+  });
 }
