@@ -160,4 +160,28 @@ document.getElementById("rightArrow").onclick = () => {
   donCar.scrollBy({ left: 300, behavior: "smooth" });
 };
 
+const donCards = document.querySelectorAll(".don-card");
+const donModal = document.getElementById("donModal");
+const closeModal = document.querySelector(".don-modal-close");
 
+donCards.forEach(card => {
+  card.addEventListener("click", () => {
+    document.getElementById("modalImage").src = card.dataset.image;
+    document.getElementById("modalTitle").textContent = card.dataset.title;
+    document.getElementById("modalLocalisation").textContent = "📍 " + card.dataset.localisation;
+    document.getElementById("modalDescription").textContent = card.dataset.description;
+    document.getElementById("modalContact").textContent = card.dataset.contact;
+
+    donModal.classList.add("active");
+  });
+});
+
+closeModal.addEventListener("click", () => {
+  donModal.classList.remove("active");
+});
+
+donModal.addEventListener("click", (e) => {
+  if (e.target === donModal) {
+    donModal.classList.remove("active");
+  }
+});
