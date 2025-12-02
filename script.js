@@ -141,3 +141,13 @@ if (carousel) {
 
   resetAutoplay();
 }
+
+const heroText = document.querySelector('.hero-right');
+
+if (heroText) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    heroText.style.transform = `translateY(${scrollY * 0.1}px)`;
+    heroText.style.opacity = `${1 - scrollY / 1000}`;
+  });
+}
