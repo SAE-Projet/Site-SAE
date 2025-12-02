@@ -152,36 +152,12 @@ if (heroText) {
   });
 }
 
-/* -------- Carrousel Dons : auto-centering -------- */
-const donCarousel = document.getElementById("donCarousel");
+const donCar = document.getElementById("donCarousel");
+document.getElementById("leftArrow").onclick = () => {
+  donCar.scrollBy({ left: -300, behavior: "smooth" });
+};
+document.getElementById("rightArrow").onclick = () => {
+  donCar.scrollBy({ left: 300, behavior: "smooth" });
+};
 
-if (donCarousel) {
-  function markCenterCard() {
-    const cards = [...donCarousel.children];
-    const center = donCarousel.offsetWidth / 2;
 
-    let closest = null;
-    let minDist = Infinity;
-
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardCenter = rect.left + rect.width / 2;
-      const dist = Math.abs(cardCenter - center);
-
-      card.classList.remove("centered");
-      if (dist < minDist) {
-        minDist = dist;
-        closest = card;
-      }
-    });
-
-    if (closest) closest.classList.add("centered");
-  }
-
-  donCarousel.addEventListener("scroll", () => {
-    clearTimeout(window.donScrollTimeout);
-    window.donScrollTimeout = setTimeout(markCenterCard, 120);
-  });
-
-  markCenterCard(); // initial
-}
