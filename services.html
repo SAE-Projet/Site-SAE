@@ -38,75 +38,86 @@
   </nav>
   <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
 
-  <main class="services-page">
-    <section class="service-section">
-      <h2>Dons Étudiants</h2>
-      <p>Découvrez les meilleures annonces de notre communauté étudiante</p>
+  <div class="don-carousel-wrapper">
+      <button class="don-arrow left" id="leftArrow">&#10094;</button>
+      <div class="don-carousel" id="donCarousel">
+        <div class="don-card"
+          data-title="Ensemble Nike"
+          data-localisation="Rennes – Quartier Beauregard"
+          data-description="Objet : Ensemble Nike Taille S — État : Très bon état"
+          data-contact="À récupérer avant mardi / Contact : +33 7 58 65 35 25"
+          data-image="ensemble-nike.jpeg">
     
-      <div class="search-filter">
-        <input type="text" placeholder="Rechercher..." class="search-bar">
-        <select class="filter-select">
-          <option value="">Filtrer</option>
-        </select>
-      </div>
-    
-      <div class="don-carousel-wrapper">
-        <button class="don-arrow left" id="leftArrow">&#10094;</button>
-        <div class="don-carousel" id="donCarousel">
-          <div class="don-card">
-            <img class="carousel" src="ensemble-nike.jpeg" alt="Ensemble Nike">
-            <h3>Ensemble Nike</h3>
-            <p>📍 Rennes – Quartier Beauregard (pour la récupération de préférence) <br>
-              Objet: Ensemble Nike Taille S <br> ✨ État : Très bon état
-            </p>
-            <p>📅 À récupérer avant mardi / 📞 Contact : +33 7 58 65 35 25</p>
-          </div>
-      
-          <div class="don-card">
-            <img class="carousel" src="basket-jordan.jpeg" alt="Basket Jordan">
-            <h3>Baskets Jordan</h3>
-            <p>📍 Rennes – Quartier Beauregard (pour la récupération de préférence) <br>
-              Objet: Baskets Jordan Gris <br>✨ État : Bon état</p>
-            <p>📅 À récupérer avant mardi / 📞 Contact : +33 7 58 65 35 25</p>
-          </div>
-      
-          <div class="don-card">
-            <img class="carousel" src="ensemble-deux-pieces.jpeg" alt="Ensemble 2 Pièces">
-            <h3>Ensemble deux pièces</h3>
-            <p>📍 Paris 4e <br> 👕 Objet : Ensemble deux pièces (haut + pantalon) <br>
-            📏 Taille : M <br> ✨ Couleur : blanc côtelé avec liserés verts</p>
-            <p>📅 À récupérer immédiatement / 📞 Contact : +33 7 44 20 86 97</p>
-          </div>
-      
-          <div class="don-card">
-            <img class="carousel" src="ensemble-noir-love.jpeg" alt="Ensemble LOVE">
-            <h3>Ensemble LOVE</h3>
-            <p>📍 Paris 4e <br> 👕 Objet : Ensemble noir LOVE (haut + short) <br>
-            📏 Taille : M <br> ✨ État : Très bon état</p>
-            <p>📅 À récupérer immédiatement / 📞 Contact : +33 7 44 20 86 97</p>
-          </div>
-
-          <div class="don-card">
-            <img class="carousel" src="pantalon-carreaux.jpeg" alt="Ensemble LOVE">
-            <h3>Pantalon large à carreaux</h3>
-            <p>📍 Paris – Saint-Lazare<br> 👖 Objet : Pantalon large multicolore à carreaux<br>
-            📏 Taille : S (bas assez large) <br> ✨ État : Très bon état</p>
-            <p>📅 À récupérer immédiatement / 📞 Contact : +33 6 64 95 85 14</p>
-          </div>
-
-          <div class="don-card">
-            <img class="carousel" src="ensemble-beige.jpeg" alt="Ensemble Beige">
-            <h3>Ensemble Beige</h3>
-            <p>📍 Paris 4e <br> 👕 Objet : Ensemble beige <br>
-            📏 Taille : XS</p>
-            <p>📅 À récupérer immédiatement / 📞 Contact : +33 6 64 95 85 14</p>
-          </div>
+          <img src="ensemble-nike.jpeg" alt="Ensemble Nike" class="carousel-img">
+          <h3>Ensemble Nike</h3>
+          <p class="localisation">📍 Rennes – Quartier Beauregard</p>
         </div>
-        <button class="don-arrow right" id="rightArrow">&#10095;</button>
-        <div class="fade-left"></div>
-        <div class="fade-right"></div>
+    
+        <div class="don-card"
+          data-title="Baskets Jordan"
+          data-localisation="Rennes – Quartier Beauregard"
+          data-description="Objet : Baskets Jordan Gris — État : Bon état"
+          data-contact="À récupérer avant mardi / Contact : +33 7 58 65 35 25"
+          data-image="basket-jordan.jpeg">
+    
+          <img src="basket-jordan.jpeg" alt="Baskets Jordan" class="carousel-img">
+          <h3>Baskets Jordan</h3>
+          <p class="localisation">📍 Rennes – Quartier Beauregard</p>
+        </div>
+    
+        <div class="don-card"
+          data-title="Ensemble deux pièces"
+          data-localisation="Paris 4e"
+          data-description="Ensemble deux pièces (haut + pantalon) — Taille M — Couleur : blanc côtelé avec liserés verts"
+          data-contact="À récupérer immédiatement / Contact : +33 7 44 20 86 97"
+          data-image="ensemble-deux-pieces.jpeg">
+    
+          <img src="ensemble-deux-pieces.jpeg" alt="Ensemble deux pièces" class="carousel-img">
+          <h3>Ensemble deux pièces</h3>
+          <p class="localisation">📍 Paris 4e</p>
+        </div>
+    
+        <div class="don-card"
+          data-title="Ensemble LOVE"
+          data-localisation="Paris 4e"
+          data-description="Ensemble noir LOVE (haut + short) — Taille M — Très bon état"
+          data-contact="À récupérer immédiatement / Contact : +33 7 44 20 86 97"
+          data-image="ensemble-noir-love.jpeg">
+    
+          <img src="ensemble-noir-love.jpeg" alt="Ensemble LOVE" class="carousel-img">
+          <h3>Ensemble LOVE</h3>
+          <p class="localisation">📍 Paris 4e</p>
+        </div>
+    
+        <div class="don-card"
+          data-title="Pantalon large à carreaux"
+          data-localisation="Paris – Saint-Lazare"
+          data-description="Pantalon large multicolore à carreaux — Taille S — Très bon état"
+          data-contact="À récupérer immédiatement / Contact : +33 6 64 95 85 14"
+          data-image="pantalon-carreaux.jpeg">
+    
+          <img src="pantalon-carreaux.jpeg" alt="Pantalon large à carreaux" class="carousel-img">
+          <h3>Pantalon large à carreaux</h3>
+          <p class="localisation">📍 Paris – Saint-Lazare</p>
+        </div>
+    
+        <div class="don-card"
+          data-title="Ensemble Beige"
+          data-localisation="Paris 4e"
+          data-description="Ensemble beige — Taille XS"
+          data-contact="À récupérer immédiatement / Contact : +33 6 64 95 85 14"
+          data-image="ensemble-beige.jpeg">
+    
+          <img src="ensemble-beige.jpeg" alt="Ensemble Beige" class="carousel-img">
+          <h3>Ensemble Beige</h3>
+          <p class="localisation">📍 Paris 4e</p>
+        </div>
       </div>
-    </section>
+      <button class="don-arrow right" id="rightArrow">&#10095;</button>
+      <div class="fade-left"></div>
+      <div class="fade-right"></div>
+    </div>
+
     
     <section class="service-section">
       <h2>Logements & Colocations</h2>
@@ -194,6 +205,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
