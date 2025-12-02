@@ -166,6 +166,8 @@ h2::after {
   flex-wrap: nowrap;
   align-items: stretch; 
   width: 100%;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 /* Première ligne : image + texte */
