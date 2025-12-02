@@ -160,55 +160,45 @@ h2::after {
   border-radius: 20px;
 }
 
-/* --- Section "À propos" --- */
 .apropos-header .apropos-row {
   display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-bottom: 60px;
-  align-items: stretch;
-  margin-left: 60px;
-  margin-right: 60px;
+  gap: 30px;
+  flex-wrap: nowrap;
+  align-items: stretch; 
+  width: 100%;
 }
 
 /* Première ligne : image + texte */
 .apropos-image {
-  flex: 1;
-  min-width: 300px;
+  flex: 0 0 auto;
 }
 
 .apropos-image img {
   width: 100%;
-  max-width: 450px; /* Réduit la taille de l’image */
+  max-width: 450px; 
+  display: block;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
-.text-part1 {
+.text-part1, .text-part2 {
   flex: 1;
-  min-width: 250px;
-  background: rgba(255,255,255,0.9);
+  margin: 0; 
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  background: rgba(255,255,255,0.9);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  color: #2c7f1c;
-  font-size: 1.15rem;
-  line-height: 1.6;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.text-part1:hover {
+.text-part1:hover, .text-part2:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-}
-
-/* Deuxième ligne : texte + vidéo */
-.text-part2 {
-  flex: 1;
-  min-width: 300px;
-  color: #2c7f1c;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 .text-part2 ul {
@@ -225,22 +215,6 @@ h2::after {
 .text-part2 p strong:hover {
   color: #30ce27;
 }
-.text-part2 {
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  color: #2c7f1c;
-  font-size: 1.10rem;
-  line-height: 1.6;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.text-part2:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-}
-
 
 .apropos-video {
   flex: 1;
