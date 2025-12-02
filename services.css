@@ -136,71 +136,6 @@ nav {
   display: none; 
 }
 
-footer {
-  background-color: #1c1c1c;
-  color: white;
-  padding: 50px 20px;
-  margin-top: 40px;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  padding: 20px;
-}
-
-footer * {
-  max-width: 100%;
-  flex-wrap: wrap;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 220px;
-  text-align: center;
-}
-
-.footer-section h3 {
-  font-size: 1.3rem;
-  margin-bottom: 14px;
-  color: white;
-}
-
-.footer-section:first-child {
-  max-width: 260px;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-footer ul li {
-  margin: 6px 0;
-}
-
-footer ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.2s ease-in-out;
-}
-
-footer ul li a:hover {
-  color: white;
-  padding-left: 4px; 
-}
-
-footer p {
-  color: #ccc;
-  margin: 6px 0;
-}
-
 .services-page {
   padding: 60px 5%;
   max-width: 1200px;
@@ -289,16 +224,16 @@ footer p {
 }
 
 .card .carousel {
+  width: 100%;
   height: 180px;
-  background-color: #f0f8ff;
-  margin-bottom: 15px;
+  object-fit: cover;
+  object-position: center; 
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1c95eb;
-  font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
+  background-color: #f0f8ff;
 }
+
 
 .card h3 {
   font-size: 1.2rem;
@@ -376,6 +311,71 @@ footer p {
 
 .sales-purchases .cta-card button:hover {
   background-color: #1aa813;
+}
+
+footer {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 50px 20px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+footer * {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+  text-align: center;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: white;
+}
+
+.footer-section:first-child {
+  max-width: 260px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: 6px 0;
+}
+
+footer ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+footer ul li a:hover {
+  color: white;
+  padding-left: 4px; 
+}
+
+footer p {
+  color: #ccc;
+  margin: 6px 0;
 }
 
 @media (max-width: 768px){
