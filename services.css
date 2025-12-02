@@ -312,6 +312,7 @@ nav {
   top: 45%;
   transform: translateY(-50%);
   background: white;
+  color: #1c95eb;
   border-radius: 50%;
   border: none;
   width: 40px;
@@ -320,6 +321,10 @@ nav {
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.don-arrow:hover {
+  background: #f2f2f2;
 }
 
 .don-arrow.left { left: 10px; }
