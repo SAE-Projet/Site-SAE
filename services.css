@@ -206,7 +206,11 @@ nav {
 }
 
 .don-section h2 {
-  color: #1c95eb !important;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: #1c95eb;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .don-search-filter {
