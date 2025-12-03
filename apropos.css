@@ -536,6 +536,10 @@ footer p {
     border-radius: 30px;
   }
 
+  .cta-buttons{
+    justify-content: center;
+  }
+
   .cta button img {
     height: 16px;
   }
