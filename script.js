@@ -152,31 +152,28 @@ document.querySelectorAll('.separator-line').forEach(line => {
       carousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
     }
 
-    // loop detection: jump when at clones
-    carousel.addEventListener('scroll', () => {
-      if (isJumping) return; // ignore while we're programmatically jumping
-
-      // debounce end-of-scroll checks
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        // if we're very close to the left edge (we are on lastClone)
-        if (carousel.scrollLeft <= 5) {
-          // jump to last real card
+    carousel.addEventListener("scrollend", () => {
+      if (isJumping) return;
+  
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  
+      // Clone à gauche → téléportation vers la vraie dernière carte
+      if (carousel.scrollLeft <= 5) {
           const lastRealIndex = allCards.length - 2;
           const targetCard = allCards[lastRealIndex];
           const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
           setScrollLeftInstant(targetLeft);
-        }
-        // if we're very close to the right edge (we are on firstClone)
-        else if (carousel.scrollLeft >= maxScroll - 5) {
+      }
+  
+      // Clone à droite → téléportation vers la vraie première carte
+      else if (carousel.scrollLeft >= maxScroll - 5) {
           const firstRealIndex = 1;
           const targetCard = allCards[firstRealIndex];
           const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
           setScrollLeftInstant(targetLeft);
-        }
-      }, 60);
+      }
     });
+
 
     // keyboard
     document.addEventListener('keydown', (e) => {
@@ -222,3 +219,4 @@ window.addEventListener("resize", () => {
         autoFitText(block);
     });
 });
+
