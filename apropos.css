@@ -258,16 +258,21 @@ h2::after {
 }
 
 .apropos-video {
-  flex: 1.2; 
-  min-width: 400px;  
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
 }
 
 .apropos-video iframe {
-  width: 100%; 
-  height: 100%; 
-  border-radius: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: none;
 }
+
 
 .equipe-grid {
   display: flex;
