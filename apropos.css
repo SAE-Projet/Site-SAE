@@ -534,6 +534,13 @@ footer p {
   .cta button img {
     height: 16px;
   }
+
+  .page-title h1 {
+    font-size: 42px;
+    color:  #007bff;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
   
   .apropos-header .apropos-row {
     flex-direction: column;
