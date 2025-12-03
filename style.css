@@ -679,6 +679,16 @@ footer p {
   margin: 6px 0;
 }
 
+.footer-bottom {
+  margin-top: 35px;
+  padding-top: 18px;
+  border-top: 1px solid #3a3a3a; 
+  text-align: center;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+
 @media (max-width: 600px) {
   .footer-container {
     text-align: center;
