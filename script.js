@@ -197,3 +197,28 @@ document.querySelectorAll('.separator-line').forEach(line => {
   if (document.readyState === 'complete') init();
   else window.addEventListener('load', init);
 })();
+
+function autoFitText(element) {
+    const parent = element.parentElement;
+    let fontSize = parseInt(window.getComputedStyle(element).fontSize);
+
+    // Réduit la taille si le texte déborde
+    while (element.scrollHeight > parent.clientHeight || element.scrollWidth > parent.clientWidth) {
+        fontSize--;
+        element.style.fontSize = fontSize + "px";
+        if (fontSize <= 10) break; // taille minimale
+    }
+}
+
+window.addEventListener("load", () => {
+    document.querySelectorAll(".text-part1, .text-part2").forEach(block => {
+        autoFitText(block);
+    });
+});
+
+window.addEventListener("resize", () => {
+    document.querySelectorAll(".text-part1, .text-part2").forEach(block => {
+        block.style.fontSize = ""; // reset
+        autoFitText(block);
+    });
+});
