@@ -632,10 +632,12 @@ footer * {
 
 .footer-container {
   display: flex;
-  justify-content: center;
-  gap: 60px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  gap: 40px;
 }
 
 .footer-section {
