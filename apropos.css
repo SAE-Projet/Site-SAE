@@ -333,6 +333,18 @@ h2::after {
   transform: translateY(-3px);
 }
 
+.separator-line {
+  width: 80%;
+  max-width: 1200px;
+  height: 3px;
+  background: linear-gradient(90deg, #1c95eb, #30ce27, #1c95eb); 
+  margin: 40px auto;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease-out;
+}
+
 footer {
   background-color: #1c1c1c;
   color: white;
