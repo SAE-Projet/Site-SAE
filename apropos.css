@@ -377,19 +377,24 @@ h2::after {
   transform-origin: left;
   transition: transform 1s ease-out;
 }
-
 footer-modern {
   background: #111;
   color: #ddd;
-  padding: 50px 8%;
-  margin-top: 40px;
+  padding: 50px 4%;
+  width: 100%;
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
   gap: 40px;
-  align-items: start;
+}
+
+.footer-grid > div {
+  flex: 1;
+  min-width: 200px; /* garde des blocs lisibles */
 }
 
 .footer-grid h4 {
@@ -418,17 +423,8 @@ footer-modern {
   padding-left: 4px;
 }
 
-.footer-brand img {
-  width: 80px;
-  margin-bottom: 12px;
-}
-
-.footer-brand h3 {
-  color: #1c95eb;
-}
-
 .footer-bottom {
-  margin-top: 35px;
+  margin-top: 30px;
   text-align: center;
   border-top: 1px solid #333;
   padding-top: 20px;
@@ -563,10 +559,5 @@ footer-modern {
   .membre {
     width: 90%;
     max-width: 300px;
-  }
-
-  .footer-modern {
-    padding: 40px 5%;
-    text-align: center;
   }
 }
