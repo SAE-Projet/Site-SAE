@@ -152,28 +152,30 @@ document.querySelectorAll('.separator-line').forEach(line => {
       carousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
     }
 
-    carousel.addEventListener("scrollend", () => {
+    carousel.addEventListener('scroll', () => {
       if (isJumping) return;
-  
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-  
-      // Clone à gauche → téléportation vers la vraie dernière carte
-      if (carousel.scrollLeft <= 5) {
-          const lastRealIndex = allCards.length - 2;
-          const targetCard = allCards[lastRealIndex];
-          const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
+    
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    
+        // — clone gauche : on revient instant au vrai dernier
+        if (carousel.scrollLeft <= 5) {
+          const lastReal = allCards.length - 2;
+          const target = allCards[lastReal];
+          const targetLeft = target.offsetLeft + target.offsetWidth/2 - carousel.clientWidth/2;
           setScrollLeftInstant(targetLeft);
-      }
-  
-      // Clone à droite → téléportation vers la vraie première carte
-      else if (carousel.scrollLeft >= maxScroll - 5) {
-          const firstRealIndex = 1;
-          const targetCard = allCards[firstRealIndex];
-          const targetLeft = targetCard.offsetLeft + (targetCard.offsetWidth / 2) - carousel.clientWidth / 2;
+        }
+    
+        // — clone droite : on revient instant au vrai premier
+        else if (carousel.scrollLeft >= maxScroll - 5) {
+          const firstReal = 1;
+          const target = allCards[firstReal];
+          const targetLeft = target.offsetLeft + target.offsetWidth/2 - carousel.clientWidth/2;
           setScrollLeftInstant(targetLeft);
-      }
+        }
+      }, 40); // délai court = NO visible jump
     });
-
 
     // keyboard
     document.addEventListener('keydown', (e) => {
@@ -219,4 +221,5 @@ window.addEventListener("resize", () => {
         autoFitText(block);
     });
 });
+
 
