@@ -202,7 +202,7 @@ h2::after {
 .apropos-row {
   display: flex;
   gap: 30px;
-  flex-wrap: nowrap; 
+  flex-wrap: wrap; 
   align-items: stretch;
   justify-content: center;
   width: 90%;
