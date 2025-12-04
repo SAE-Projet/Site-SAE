@@ -1018,4 +1018,42 @@ footer p {
     height: 32px;
     font-size: 18px;
   }
+
+  footer {
+    padding: 40px 15px;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0;
+  }
+
+  .footer-section {
+    min-width: auto;
+  }
+
+  .footer-container > .footer-section:nth-child(1),
+  .footer-container > .footer-section:nth-child(2),
+  .footer-container > .footer-section:nth-child(3) {
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  footer p,
+  footer ul li a {
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 0.85rem;
+  }
 }
