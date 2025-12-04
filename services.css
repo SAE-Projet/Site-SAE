@@ -757,6 +757,16 @@ nav {
   transition: transform 1s ease-out;
 }
 
+#modalLocalisation,
+#modalDescription,
+#modalContact,
+#serviceModalLocalisation,
+#serviceModalDescription,
+#serviceModalContact,
+#serviceModalPrice {
+  color: #30ce27 !important;
+}
+
 footer {
   background-color: #1c1c1c;
   color: white;
