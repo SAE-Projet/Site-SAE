@@ -757,6 +757,31 @@ nav {
   transition: transform 1s ease-out;
 }
 
+.cta-container {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center;
+  gap: 40px; 
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.cta-card {
+  width: 300px;
+  text-align: center;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.cta-card p {
+  margin-bottom: 15px;
+}
+
+.cta-card button {
+  padding: 10px 25px;
+}
+
 #modalLocalisation,
 #modalDescription,
 #modalContact,
