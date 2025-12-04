@@ -2,7 +2,6 @@ const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 const overlay = document.getElementById('menu-overlay');
 
-// Menu burger
 function toggleMenu() {
   const isOpen = navLinks.classList.toggle('active');
   burger.classList.toggle('open', isOpen);
@@ -49,21 +48,49 @@ const separator = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.separator-line').forEach(line => separator.observe(line));
 
-const carousel = document.getElementById('carousel');
-const prev = document.getElementById('prev');
-const next = document.getElementById('next');
+const avisCarousel = document.getElementById('carousel');
+const prevAvis = document.getElementById('prev');
+const nextAvis = document.getElementById('next');
 
-if (carousel && prev && next) {
-  const card = carousel.querySelector('.avis');
+if (avisCarousel && prevAvis && nextAvis) {
+  const card = avisCarousel.querySelector('.avis');
   const cardWidth = card.getBoundingClientRect().width;
-  const gap = parseFloat(getComputedStyle(carousel).gap) || 20; // prend en compte l'espace entre les cartes
+  const gap = parseFloat(getComputedStyle(avisCarousel).gap) || 20;
 
-  prev.addEventListener('click', () => {
-    carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+  prevAvis.addEventListener('click', () => {
+    avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+  });
+  nextAvis.addEventListener('click', () => {
+    avisCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
   });
 
-  next.addEventListener('click', () => {
-    carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+  let isDown = false, startX = 0, scrollStart = 0;
+  avisCarousel.addEventListener('pointerdown', e => {
+    isDown = true;
+    startX = e.clientX;
+    scrollStart = avisCarousel.scrollLeft;
+    avisCarousel.style.cursor = 'grabbing';
+    avisCarousel.setPointerCapture?.(e.pointerId);
+  });
+
+  avisCarousel.addEventListener('pointermove', e => {
+    if (!isDown) return;
+    const dx = startX - e.clientX;
+    avisCarousel.scrollLeft = scrollStart + dx;
+  });
+
+  const endPointer = () => {
+    if (!isDown) return;
+    isDown = false;
+    avisCarousel.style.cursor = '';
+  };
+  avisCarousel.addEventListener('pointerup', endPointer);
+  avisCarousel.addEventListener('pointercancel', endPointer);
+
+  // Flèches clavier
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    if (e.key === 'ArrowRight') avisCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
   });
 }
 
@@ -86,7 +113,6 @@ if (carousel && prev && next) {
     leftArrow?.addEventListener('click', () => {
       carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
     });
-
     rightArrow?.addEventListener('click', () => {
       carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
     });
@@ -115,6 +141,7 @@ if (carousel && prev && next) {
     carousel.addEventListener('pointerup', endPointer);
     carousel.addEventListener('pointercancel', endPointer);
 
+    // Flèches clavier
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
       if (e.key === 'ArrowRight') carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
@@ -146,9 +173,7 @@ document.body.addEventListener('click', (e) => {
   serviceModal.classList.add('active');
 });
 
-// Fermer popup
 serviceModalClose.addEventListener('click', () => serviceModal.classList.remove('active'));
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
-
