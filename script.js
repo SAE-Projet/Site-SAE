@@ -54,24 +54,42 @@ const nextBtn = document.getElementById('next');
 
 if (carousel && prevBtn && nextBtn) {
   const slides = Array.from(carousel.children);
-  let currentIndex = 0;
+  const slideWidth = slides[0].offsetWidth;
+
+  
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+
+  firstClone.id = 'first-clone';
+  lastClone.id = 'last-clone';
+
+  carousel.appendChild(firstClone);
+  carousel.insertBefore(lastClone, slides[0]);
+
+  let currentIndex = 1; 
+  carousel.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+  carousel.style.transition = 'transform 0.4s ease';
 
   const updateCarousel = () => {
-    const slideWidth = slides[0].offsetWidth;
-    const offset = slideWidth * currentIndex;
-    carousel.style.transform = `translateX(-${offset}px)`;
+    carousel.style.transition = 'transform 0.4s ease';
+    carousel.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
   };
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-    resetAutoSlide();
-  });
+  const jumpWithoutAnimation = () => {
+    carousel.style.transition = 'none';
+    carousel.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+  };
 
   nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
+    if (currentIndex >= slides.length + 1) return;
+    currentIndex++;
     updateCarousel();
-    resetAutoSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex <= 0) return;
+    currentIndex--;
+    updateCarousel();
   });
 
   let startX = 0;
@@ -81,51 +99,67 @@ if (carousel && prevBtn && nextBtn) {
     isDragging = true;
     startX = e.clientX;
     carousel.setPointerCapture(e.pointerId);
+    carousel.style.transition = 'none';
   });
 
   carousel.addEventListener('pointermove', e => {
     if (!isDragging) return;
     const dx = e.clientX - startX;
-    carousel.style.transform = `translateX(${-slides[0].offsetWidth * currentIndex + -dx}px)`;
+    carousel.style.transform = `translateX(${-slideWidth * currentIndex + -dx}px)`;
   });
 
   const endDrag = e => {
     if (!isDragging) return;
     isDragging = false;
     const dx = e.clientX - startX;
+    carousel.style.transition = 'transform 0.4s ease';
     if (dx > 50) { 
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    } else if (dx < -50) {
-      currentIndex = (currentIndex + 1) % slides.length;
+      currentIndex--;
+    } else if (dx < -50) { 
+      currentIndex++;
     }
     updateCarousel();
-    resetAutoSlide();
   };
 
   carousel.addEventListener('pointerup', endDrag);
   carousel.addEventListener('pointercancel', endDrag);
   carousel.addEventListener('pointerleave', endDrag);
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') prevBtn.click();
-    if (e.key === 'ArrowRight') nextBtn.click();
+  carousel.addEventListener('transitionend', () => {
+    if (carousel.children[currentIndex].id === 'first-clone') {
+      currentIndex = 1;
+      jumpWithoutAnimation();
+    }
+    if (carousel.children[currentIndex].id === 'last-clone') {
+      currentIndex = slides.length;
+      jumpWithoutAnimation();
+    }
   });
 
-  updateCarousel();
-
   let autoSlide = setInterval(() => {
-    currentIndex = (currentIndex + 1) % slides.length;
+    currentIndex++;
     updateCarousel();
   }, 5000);
 
   const resetAutoSlide = () => {
     clearInterval(autoSlide);
     autoSlide = setInterval(() => {
-      currentIndex = (currentIndex + 1) % slides.length;
+      currentIndex++;
       updateCarousel();
     }, 5000);
   };
+
+  nextBtn.addEventListener('click', resetAutoSlide);
+  prevBtn.addEventListener('click', resetAutoSlide);
+  carousel.addEventListener('pointerup', resetAutoSlide);
+  carousel.addEventListener('pointercancel', resetAutoSlide);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
+  });
 }
+
 
 (function() {
   const wrappers = document.querySelectorAll('.don-carousel-wrapper, .logement-carousel-wrapper');
