@@ -222,6 +222,122 @@ window.addEventListener("resize", () => {
     });
 });
 
+(function() {
+  const wrappers = document.querySelectorAll('.logement-carousel-wrapper');
+
+  wrappers.forEach(wrapper => {
+    const carousel = wrapper.querySelector('.logement-carousel');
+    const leftArrow = wrapper.querySelector('.logement-arrow.left');
+    const rightArrow = wrapper.querySelector('.logement-arrow.right');
+
+    if (!carousel) return;
+
+    const cards = Array.from(carousel.querySelectorAll('.logement-card'));
+    if (cards.length === 0) return;
+
+    // Clone first & last for infinite scroll
+    const firstClone = cards[0].cloneNode(true);
+    const lastClone = cards[cards.length - 1].cloneNode(true);
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
+    carousel.appendChild(firstClone);
+    carousel.insertBefore(lastClone, carousel.firstChild);
+
+    const allCards = Array.from(carousel.querySelectorAll('.logement-card'));
+    const cardGap = parseFloat(getComputedStyle(carousel).gap) || 20;
+    const cardWidth = allCards[1].getBoundingClientRect().width;
+
+    let isJumping = false;
+    let scrollTimeout;
+
+    function setScrollLeftInstant(pos) {
+      isJumping = true;
+      carousel.style.scrollBehavior = 'auto';
+      carousel.scrollLeft = pos;
+      requestAnimationFrame(() => {
+        carousel.style.scrollBehavior = 'smooth';
+        setTimeout(() => { isJumping = false; }, 80);
+      });
+    }
+
+    // Center first real card initially
+    setScrollLeftInstant(cardWidth + cardGap);
+
+    function moveByCard(n = 1) {
+      if (isJumping) return;
+      carousel.scrollBy({ left: (cardWidth + cardGap) * n, behavior: 'smooth' });
+    }
+
+    leftArrow?.addEventListener('click', () => moveByCard(-1));
+    rightArrow?.addEventListener('click', () => moveByCard(1));
+
+    // Drag support
+    let isDown = false, startX = 0, scrollStart = 0;
+    carousel.addEventListener('pointerdown', e => {
+      isDown = true;
+      startX = e.clientX;
+      scrollStart = carousel.scrollLeft;
+      carousel.style.cursor = 'grabbing';
+      carousel.setPointerCapture?.(e.pointerId);
+    });
+    carousel.addEventListener('pointermove', e => {
+      if (!isDown) return;
+      const dx = startX - e.clientX;
+      carousel.scrollLeft = scrollStart + dx;
+    });
+    const endPointer = () => { if (!isDown) return; isDown = false; carousel.style.cursor = ''; snapToNearest(); };
+    carousel.addEventListener('pointerup', endPointer);
+    carousel.addEventListener('pointercancel', endPointer);
+
+    // Snap to nearest card
+    function snapToNearest() {
+      const center = carousel.clientWidth / 2;
+      let closest = { idx: 0, dist: Infinity };
+      allCards.forEach((c, i) => {
+        const rect = c.getBoundingClientRect();
+        const cardCenter = rect.left - carousel.getBoundingClientRect().left + rect.width / 2;
+        const dist = Math.abs(cardCenter - center);
+        if (dist < closest.dist) closest = { idx: i, dist };
+      });
+      const target = allCards[closest.idx];
+      const targetLeft = target.offsetLeft + target.offsetWidth / 2 - carousel.clientWidth / 2;
+      carousel.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    }
+
+    carousel.addEventListener('scroll', () => {
+      if (isJumping) return;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+        if (carousel.scrollLeft <= 5) { // clone gauche
+          const lastReal = allCards.length - 2;
+          const target = allCards[lastReal];
+          setScrollLeftInstant(target.offsetLeft + target.offsetWidth / 2 - carousel.clientWidth / 2);
+        } else if (carousel.scrollLeft >= maxScroll - 5) { // clone droite
+          const firstReal = 1;
+          const target = allCards[firstReal];
+          setScrollLeftInstant(target.offsetLeft + target.offsetWidth / 2 - carousel.clientWidth / 2);
+        }
+      }, 40);
+    });
+
+    // Keyboard arrows
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') moveByCard(-1);
+      if (e.key === 'ArrowRight') moveByCard(1);
+    });
+
+    // Resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => snapToNearest(), 150);
+    });
+  });
+})();
+
+
 // Modal pour cartes services / ventes / achats
 const serviceCards = document.querySelectorAll('.service-card');
 const serviceModal = document.getElementById('serviceModal');
@@ -252,5 +368,6 @@ serviceModalClose.addEventListener('click', () => {
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
+
 
 
