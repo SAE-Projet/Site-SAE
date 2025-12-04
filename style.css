@@ -448,13 +448,16 @@ nav {
 }
 
 .carousel-viewport {
-  overflow-x: auto; 
-  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 500px; 
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .carousel {
   display: flex;
-  gap: 20px; 
+  transition: transform 0.5s ease;
+  justify-content: center; 
 }
 
 .carousel-container,
@@ -463,13 +466,16 @@ nav {
   background: #transparent;
 }
 
-
 .avis {
-  flex: 0 0 300px; 
+  min-width: 100%; 
+  max-width: 500px;
+  margin: 0 auto;
+  flex-shrink: 0;
   background: #ffffff;
   padding: 30px;
   border-radius: 30px;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .avis p {
