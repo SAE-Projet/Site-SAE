@@ -603,6 +603,98 @@ nav {
   box-shadow: 0 10px 24px rgba(0,0,0,0.18);
 }
 
+.sales-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.sales-carousel {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sales-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.sales-card {
+  min-width: 250px;
+  max-width: 350px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sales-card:hover {
+  transform: scale(1.05);
+}
+
+.sales-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.sales-card h3 {
+  color: #1c95eb;
+  font-size: 18px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sales-card p {
+  display: none; 
+}
+
+.sales-card.centered {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.sales-arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: white;
+  color: #1c95eb;
+  border-radius: 50%;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.sales-arrow:hover {
+  background: #f2f2f2;
+}
+
+.sales-arrow.left { left: 10px; }
+.sales-arrow.right { right: 10px; }
+
 .sales-purchases .cta-container {
   display: flex;
   justify-content: center;
