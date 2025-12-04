@@ -662,6 +662,9 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .sales-card p {
