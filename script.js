@@ -48,55 +48,69 @@ const separator = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.separator-line').forEach(line => separator.observe(line));
 
-const avisCarousel = document.getElementById('carousel');
-const prevAvis = document.getElementById('prev');
-const nextAvis = document.getElementById('next');
+const carousel = document.getElementById('carousel');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
 
-if (avisCarousel && prevAvis && nextAvis) {
-  const card = avisCarousel.querySelector('.avis');
-  const cardWidth = card.offsetWidth;
-  const gap = 20; 
+if (carousel && prevBtn && nextBtn) {
+  const slides = Array.from(carousel.children);
+  let currentIndex = 0;
 
-  prevAvis.addEventListener('click', () => {
-    avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-  });
-
-  nextAvis.addEventListener('click', () => {
-    avisCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-  });
-
-  let isDown = false, startX, scrollStart;
-
-  avisCarousel.addEventListener('pointerdown', e => {
-    isDown = true;
-    startX = e.pageX - avisCarousel.offsetLeft;
-    scrollStart = avisCarousel.scrollLeft;
-    avisCarousel.style.cursor = 'grabbing';
-    avisCarousel.setPointerCapture?.(e.pointerId);
-  });
-
-  avisCarousel.addEventListener('pointermove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - avisCarousel.offsetLeft;
-    const walk = (x - startX);
-    avisCarousel.scrollLeft = scrollStart - walk;
-  });
-
-  const endPointer = () => {
-    isDown = false;
-    avisCarousel.style.cursor = '';
+  const updateCarousel = () => {
+    const slideWidth = slides[0].offsetWidth;
+    const offset = slideWidth * currentIndex;
+    carousel.style.transform = `translateX(-${offset}px)`;
   };
 
-  avisCarousel.addEventListener('pointerup', endPointer);
-  avisCarousel.addEventListener('pointercancel', endPointer);
-  avisCarousel.addEventListener('pointerleave', endPointer);
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  });
+
+  let startX = 0;
+  let isDragging = false;
+
+  carousel.addEventListener('pointerdown', e => {
+    isDragging = true;
+    startX = e.clientX;
+    carousel.setPointerCapture(e.pointerId);
+  });
+
+  carousel.addEventListener('pointermove', e => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    carousel.style.transform = `translateX(${-slides[0].offsetWidth * currentIndex + -dx}px)`;
+  });
+
+  const endDrag = e => {
+    if (!isDragging) return;
+    isDragging = false;
+    const dx = e.clientX - startX;
+    if (dx > 50) { 
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    } else if (dx < -50) {
+      currentIndex = (currentIndex + 1) % slides.length;
+    }
+    updateCarousel();
+  };
+
+  carousel.addEventListener('pointerup', endDrag);
+  carousel.addEventListener('pointercancel', endDrag);
+  carousel.addEventListener('pointerleave', endDrag);
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-    if (e.key === 'ArrowRight') avisCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
   });
+
+  updateCarousel();
 }
+
 
 (function() {
   const wrappers = document.querySelectorAll('.don-carousel-wrapper, .logement-carousel-wrapper');
@@ -181,5 +195,6 @@ serviceModalClose.addEventListener('click', () => serviceModal.classList.remove(
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
+
 
 
