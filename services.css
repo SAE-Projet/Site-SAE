@@ -973,29 +973,29 @@ footer p {
 
   .cta-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     gap: 20px;
-    margin: 0 auto;         
-    padding: 0 10px;        
+    margin: 0 auto;
+    padding: 0 10px;
   }
 
   .cta-card {
     width: 100%;            
     max-width: 300px;       
     text-align: center;     
-    height: auto; 
-    padding: 20px; 
-    box-sizing: border-box; 
+    height: auto;
+    padding: 20px;          
+    box-sizing: border-box;
   }
 
   .cta-card p {
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
   }
 
   .cta-card button {
     width: auto;
-    padding: 10px 25px;     
+    padding: 10px 25px;
   }
 }
 
