@@ -995,12 +995,12 @@ footer p {
     max-width: 300px;       
     text-align: center;     
     height: auto;
-    padding: 20px;          
+    padding: 12px 16px;;          
     box-sizing: border-box;
   }
 
   .cta-card p {
-    margin-bottom: 15px;
+    margin-bottom: 10px
   }
 
   .cta-card button {
@@ -1017,10 +1017,5 @@ footer p {
     width: 32px;
     height: 32px;
     font-size: 18px;
-  }
-
-  .sales-purchases .cta-container {
-    flex-direction: column;
-    gap: 25px;
   }
 }
