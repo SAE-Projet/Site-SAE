@@ -1032,12 +1032,12 @@ footer p {
     width: auto;
     padding: 10px 25px;
   }
-}
 
   .logement-card {
     min-width: 200px;
     max-width: 280px;
   }
+  
   .logement-arrow {
     width: 32px;
     height: 32px;
