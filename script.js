@@ -65,11 +65,13 @@ if (carousel && prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     updateCarousel();
+    resetAutoSlide();
   });
 
   nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % slides.length;
     updateCarousel();
+    resetAutoSlide();
   });
 
   let startX = 0;
@@ -97,6 +99,7 @@ if (carousel && prevBtn && nextBtn) {
       currentIndex = (currentIndex + 1) % slides.length;
     }
     updateCarousel();
+    resetAutoSlide();
   };
 
   carousel.addEventListener('pointerup', endDrag);
@@ -109,8 +112,20 @@ if (carousel && prevBtn && nextBtn) {
   });
 
   updateCarousel();
-}
 
+  let autoSlide = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }, 5000);
+
+  const resetAutoSlide = () => {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }, 5000);
+  };
+}
 
 (function() {
   const wrappers = document.querySelectorAll('.don-carousel-wrapper, .logement-carousel-wrapper');
@@ -159,13 +174,13 @@ if (carousel && prevBtn && nextBtn) {
     carousel.addEventListener('pointerup', endPointer);
     carousel.addEventListener('pointercancel', endPointer);
 
-    // Flèches clavier
     document.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
       if (e.key === 'ArrowRight') carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
     });
   });
 })();
+
 
 const serviceModal = document.getElementById('serviceModal');
 const modalImage = document.getElementById('serviceModalImage');
@@ -195,6 +210,4 @@ serviceModalClose.addEventListener('click', () => serviceModal.classList.remove(
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
-
-
 
