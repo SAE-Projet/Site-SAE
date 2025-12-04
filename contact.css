@@ -485,6 +485,50 @@ footer p {
       padding-left: 0;
       gap: 15px;
   }
+
+  footer {
+    padding: 40px 15px;
+    text-align: center; 
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 0;
+  }
+
+  .footer-section {
+    text-align: center !important;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  footer p,
+  footer ul li a {
+    font-size: 0.95rem;
+    text-align: center; 
+  }
+
+  footer ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  footer ul li {
+    margin: 5px 0;
+  }
+
+  .footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 0.85rem;
+    text-align: center;
+  }
 }
 
 .contact-info h2 {
