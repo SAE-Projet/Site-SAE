@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,11 +6,10 @@
   <title>Le Coin Des Étudiants</title>
   <link rel="stylesheet" href="services.css">
 </head>
+
 <body>
   <nav>
-    <div class="burger" id="burger">
-      &#9776; 
-    </div>
+    <div class="burger" id="burger">&#9776;</div>
 
     <div class="logo">
       <img src="logo.png" alt="Logo">
@@ -18,9 +17,7 @@
     </div>
 
     <ul class="nav-links" id="nav-links">
-      <li class="menu-header">
-        <span>Le Coin Des Étudiants</span>
-      </li>
+      <li class="menu-header"><span>Le Coin Des Étudiants</span></li>
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="apropos.html">À propos</a></li>
@@ -36,299 +33,257 @@
       </button>
     </div>
   </nav>
+
   <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
 
-  <section class="don-section">
-    <h2>Dons Étudiants</h2>
-  
-    <div class="search-filter">
-      <input type="text" placeholder="Rechercher..." class="search-bar">
-      <select class="filter-select">
-        <option value="">Filtrer</option>
-      </select>
-    </div>
-    
-    <div class="don-carousel-wrapper">
-      <button class="don-arrow left" id="leftArrow">&#10094;</button>
-      <button class="don-arrow right" id="rightArrow">&#10095;</button>
-  
-      <div class="don-carousel" id="donCarousel">
-        <div class="don-card"
-          data-title="Ensemble Nike"
-          data-localisation="Rennes – Quartier Beauregard"
-          data-description="Objet : Ensemble Nike Taille S — État : Très bon état"
-          data-contact="À récupérer avant mardi / Contact : +33 7 58 65 35 25"
-          data-image="ensemble-nike.jpeg">
-    
-          <img src="ensemble-nike.jpeg" alt="Ensemble Nike" class="don-img">
-          <h3>Ensemble Nike</h3>
-          <p class="localisation">📍 Rennes – Quartier Beauregard</p>
-        </div>
-    
-        <div class="don-card"
-          data-title="Baskets Jordan"
-          data-localisation="Rennes – Quartier Beauregard"
-          data-description="Objet : Baskets Jordan Gris — État : Bon état"
-          data-contact="À récupérer avant mardi / Contact : +33 7 58 65 35 25"
-          data-image="basket-jordan.jpeg">
-    
-          <img src="basket-jordan.jpeg" alt="Baskets Jordan" class="don-img">
-          <h3>Baskets Jordan</h3>
-          <p class="localisation">📍 Rennes – Quartier Beauregard</p>
-        </div>
-    
-        <div class="don-card"
-          data-title="Ensemble deux pièces"
-          data-localisation="Paris 4e"
-          data-description="Ensemble deux pièces (haut + pantalon) — Taille M — Couleur : blanc côtelé avec liserés verts"
-          data-contact="À récupérer immédiatement / Contact : +33 7 44 20 86 97"
-          data-image="ensemble-deux-pieces.jpeg">
-    
-          <img src="ensemble-deux-pieces.jpeg" alt="Ensemble deux pièces" class="don-img">
-          <h3>Ensemble deux pièces</h3>
-          <p class="localisation">📍 Paris 4e</p>
-        </div>
-    
-        <div class="don-card"
-          data-title="Ensemble LOVE"
-          data-localisation="Paris 4e"
-          data-description="Ensemble noir LOVE (haut + short) — Taille M — Très bon état"
-          data-contact="À récupérer immédiatement / Contact : +33 7 44 20 86 97"
-          data-image="ensemble-noir-love.jpeg">
-    
-          <img src="ensemble-noir-love.jpeg" alt="Ensemble LOVE" class="don-img">
-          <h3>Ensemble LOVE</h3>
-          <p class="localisation">📍 Paris 4e</p>
-        </div>
-    
-        <div class="don-card"
-          data-title="Pantalon large à carreaux"
-          data-localisation="Paris – Saint-Lazare"
-          data-description="Pantalon large multicolore à carreaux — Taille S — Très bon état"
-          data-contact="À récupérer immédiatement / Contact : +33 6 64 95 85 14"
-          data-image="pantalon-carreaux.jpeg">
-    
-          <img src="pantalon-carreaux.jpeg" alt="Pantalon large à carreaux" class="don-img">
-          <h3>Pantalon large à carreaux</h3>
-          <p class="localisation">📍 Paris – Saint-Lazare</p>
-        </div>
-    
-        <div class="don-card"
-          data-title="Ensemble Beige"
-          data-localisation="Paris 4e"
-          data-description="Ensemble beige — Taille XS"
-          data-contact="À récupérer immédiatement / Contact : +33 6 64 95 85 14"
-          data-image="ensemble-beige.jpeg">
-    
-          <img src="ensemble-beige.jpeg" alt="Ensemble Beige" class="don-img">
-          <h3>Ensemble Beige</h3>
-          <p class="localisation">📍 Paris 4e</p>
-        </div>
-      </div>
-    </div>
+  <main>
+    <section class="don-section">
+      <h2>Dons Étudiants</h2>
 
-    <div class="separator-line"></div>
-    
-    <section class="service-section">
-      <h2>Logements & Colocations</h2>
-    
       <div class="search-filter">
         <input type="text" placeholder="Rechercher..." class="search-bar">
         <select class="filter-select">
           <option value="">Filtrer</option>
         </select>
       </div>
+
+      <div class="don-carousel-wrapper">
+        <button class="don-arrow left" id="leftArrow">&#10094;</button>
+        <button class="don-arrow right" id="rightArrow">&#10095;</button>
+        
+        <div class="don-carousel" id="donCarousel">
+
+          <div class="don-card"
+            data-title="Ensemble Nike"
+            data-localisation="Rennes — Quartier Beauregard"
+            data-description="Objet : Ensemble Nike Taille S — État : Très bon état"
+            data-contact="À récupérer avant mardi / Contact : +33 7 58 65 35 25"
+            data-image="ensemble-nike.jpeg">
+            <img src="ensemble-nike.jpeg" alt="Ensemble Nike" class="don-img">
+            <h3>Ensemble Nike</h3>
+            <p class="localisation">📍 Rennes – Quartier Beauregard</p>
+          </div>
+
+          <div class="don-card"
+            data-title="Baskets Jordan"
+            data-localisation="Rennes – Quartier Beauregard"
+            data-description="Objet : Baskets Jordan Gris — État : Bon état"
+            data-contact="À récupérer avant mardi / Contact : +33 7 58 65 35 25"
+            data-image="basket-jordan.jpeg">
+            <img src="basket-jordan.jpeg" alt="Baskets Jordan" class="don-img">
+            <h3>Baskets Jordan</h3>
+            <p class="localisation">📍 Rennes – Quartier Beauregard</p>
+          </div>
+
+          <div class="don-card"
+            data-title="Ensemble deux pièces"
+            data-localisation="Paris 4e"
+            data-description="Ensemble deux pièces (haut + pantalon) — Taille M — Couleur blanc côtelé"
+            data-contact="À récupérer immédiatement / Contact : +33 7 44 20 86 97"
+            data-image="ensemble-deux-pieces.jpeg">
+            <img src="ensemble-deux-pieces.jpeg" alt="Ensemble deux pièces" class="don-img">
+            <h3>Ensemble deux pièces</h3>
+            <p class="localisation">📍 Paris 4e</p>
+          </div>
+
+          <div class="don-card"
+            data-title="Ensemble LOVE"
+            data-localisation="Paris 4e"
+            data-description="Ensemble noir LOVE (haut + short) — Taille M — Très bon état"
+            data-contact="À récupérer immédiatement / Contact : +33 7 44 20 86 97"
+            data-image="ensemble-noir-love.jpeg">
+            <img src="ensemble-noir-love.jpeg" alt="Ensemble LOVE" class="don-img">
+            <h3>Ensemble LOVE</h3>
+            <p class="localisation">📍 Paris 4e</p>
+          </div>
+
+          <div class="don-card"
+            data-title="Pantalon large à carreaux"
+            data-localisation="Paris – Saint-Lazare"
+            data-description="Pantalon large multicolore — Taille S — Très bon état"
+            data-contact="À récupérer immédiatement / Contact : +33 6 64 95 85 14"
+            data-image="pantalon-carreaux.jpeg">
+            <img src="pantalon-carreaux.jpeg" alt="Pantalon large à carreaux" class="don-img">
+            <h3>Pantalon large à carreaux</h3>
+            <p class="localisation">📍 Paris – Saint-Lazare</p>
+          </div>
+
+          <div class="don-card"
+            data-title="Ensemble Beige"
+            data-localisation="Paris 4e"
+            data-description="Ensemble beige — Taille XS"
+            data-contact="À récupérer immédiatement / Contact : +33 6 64 95 85 14"
+            data-image="ensemble-beige.jpeg">
+            <img src="ensemble-beige.jpeg" alt="Ensemble Beige" class="don-img">
+            <h3>Ensemble Beige</h3>
+            <p class="localisation">📍 Paris 4e</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="separator-line"></div>
+    </section>
     
+    <section class="service-section">
+      <h2>Logements & Colocations</h2>
+
+      <div class="search-filter">
+        <input type="text" placeholder="Rechercher..." class="search-bar">
+        <select class="filter-select">
+          <option value="">Filtrer</option>
+        </select>
+      </div>
+
       <div class="logement-carousel-wrapper">
         <button class="logement-arrow left">&#8249;</button>
         <div class="logement-carousel">
-      
           <div class="logement-card">
             <img src="logement-porcheville.jpeg" alt="Porcheville">
             <h3>Résidence étudiante – Porcheville (78)</h3>
-            <p class="localisation">📍 Porcheville (78) – 10 min de Mantes-la-Jolie (ligne J)</p>
+            <p class="localisation">📍 Porcheville – 10 min de Mantes-la-Jolie</p>
             <p class="hidden-info">
-              🛏️ Chambres single (9–10 m²) – 750 €/mois<br>
-              🛏️ Chambres double (12–16 m²) – 500 €/personne/mois<br>
-              🛏️ Chambres triple (21 m²) – 400 €/personne/mois<br>
-              Charges incluses : eau, électricité, Wi-Fi, nettoyage.<br>
-              Douches partagées, restaurant solidaire (7 €/jour), espaces détente.<br>
-              <strong>Accompagnement social & administratif inclus</strong>
+              Chambres single, double ou triple.<br>
+              Charges incluses, restaurant solidaire, Wi-Fi.<br>
+              Accompagnement social inclus.
             </p>
           </div>
-      
+
           <div class="logement-card">
             <img src="logement-cergy.jpeg" alt="Cergy">
             <h3>Studio meublé – Cergy Saint-Christophe</h3>
-            <p class="localisation">📍 Cergy Saint-Christophe (95800)</p>
-            <p class="hidden-info">
-              Studio rénové de 17 m² : salle d’eau, cuisine équipée, mobilier moderne.<br>
-              Chauffage électrique, double vitrage, résidence sécurisée.<br>
-              🚇 À 10 min du RER A, commerces & base de loisirs.<br>
-              Laverie dans la résidence.<br>
-              💶 600 €/mois (530 € + 70 € charges) — Dépôt : 530 €<br>
-              📞 06 19 30 59 44
-            </p>
+            <p class="localisation">📍 95800 Cergy</p>
+            <p class="hidden-info">Studio rénové 17 m² — 600 €/mois</p>
           </div>
-      
+
           <div class="logement-card">
             <img src="logement-caen.jpeg" alt="Caen">
             <h3>Chambre mezzanine – Caen (St Paul)</h3>
-            <p class="localisation">📍 Caen – Quartier St Paul</p>
-            <p class="hidden-info">
-              Chambre meublée 17 m² + mezzanine 7 m² (lit 140, bureau, canapé).<br>
-              Salle de bain + WC privatifs, linge fourni, cuisine & buanderie accessibles.<br>
-              Wifi fibre, jardin, stationnement gratuit. Présence d’un enfant & 2 chats.<br>
-              💶 450 €/mois — Nuitée possible<br>
-              ⚡ Priorité : étudiante en alternance<br>
-              📞 06 76 97 97 25
-            </p>
+            <p class="localisation">📍 Caen</p>
+            <p class="hidden-info">Chambre 17 m² + mezzanine — 450 €/mois</p>
           </div>
-      
+
           <div class="logement-card">
             <img src="logement-palaiseau.jpeg" alt="Palaiseau">
-            <h3>Chambre en sous-location – Palaiseau (femmes)</h3>
-            <p class="localisation">📍 Palaiseau (91120)</p>
-            <p class="hidden-info">
-              Chambre dans logement familial, charges comprises, machine à laver incluse, sans caution.<br>
-              Ambiance conviviale et rassurante.<br>
-              💶 300 €/mois – Pas d’APL<br>
-              📞 07 51 28 10 28
-            </p>
+            <h3>Chambre en sous-location – Palaiseau</h3>
+            <p class="localisation">📍 Palaiseau</p>
+            <p class="hidden-info">300 €/mois — Femmes uniquement</p>
           </div>
-      
+
           <div class="logement-card">
             <img src="logement-savigny.jpeg" alt="Savigny-sur-Orge">
             <h3>Chambre meublée – Savigny-sur-Orge</h3>
-            <p class="localisation">📍 Savigny-sur-Orge (91600 — Cherchefeuilles)</p>
-            <p class="hidden-info">
-              Lit, armoire, table, chaises.<br>
-              Cuisine équipée : plaques, micro-ondes, frigo.<br>
-              💶 495 € CC / mois<br>
-              📞 06 76 87 10 80
-            </p>
+            <p class="localisation">📍 Savigny-sur-Orge</p>
+            <p class="hidden-info">495 € CC / mois</p>
           </div>
-      
+
           <div class="logement-card">
             <img src="logement-marseille.jpeg" alt="Marseille">
             <h3>Appartement T1 – Marseille 13015</h3>
-            <p class="localisation">📍 Marseille — Quartier Euroméditerranée</p>
-            <p class="hidden-info">
-              T1 avec pièce principale, coin cuisine, salle de bain (douche + WC).<br>
-              Proche métro Gèze & Bougainville.<br>
-              💶 450 € CC / mois<br>
-              📞 Alessia — 06 46 82 22 95 (SMS d’abord)
-            </p>
+            <p class="localisation">📍 Marseille – Euroméditerranée</p>
+            <p class="hidden-info">450 € CC / mois</p>
           </div>
-      
+
           <div class="logement-card">
             <img src="logement-aulnay.jpeg" alt="Aulnay-sous-Bois">
-            <h3>Dépannage logement étudiant – Aulnay-sous-Bois (femme)</h3>
-            <p class="localisation">📍 Aulnay-sous-Bois (93600)</p>
-            <p class="hidden-info">
-              Matelas 2 places, armoire, douche dans la pièce, frigo.<br>
-              Pas de vraie cuisine — solution provisoire mais sécurisée.<br>
-              💶 650 € / mois (charges incluses)<br>
-              🌸 Hébergement dans famille respectueuse<br>
-              📞 06 14 75 75 77
-            </p>
+            <h3>Dépannage logement étudiant – Aulnay-sous-Bois</h3>
+            <p class="localisation">📍 Aulnay-sous-Bois</p>
+            <p class="hidden-info">650 €/mois – Femmes uniquement</p>
           </div>
         </div>
         <button class="logement-arrow right">&#8250;</button>
       </div>
+
+      <div class="separator-line"></div>
     </section>
 
-    <div class="separator-line"></div>
-    
     <section class="service-section sales-purchases">
       <h2>Ventes et Achats</h2>
+
       <div class="cta-container">
-    
         <div class="cta-card">
           <p>Vous souhaitez vendre un article ?</p>
           <button onclick="window.location.href='contact.html?type=Vendre%20un%20produit'">Accéder →</button>
         </div>
-    
+
         <div class="cta-card">
           <p>Vous souhaitez acheter un article ?</p>
           <button onclick="window.location.href='#achat-list'">Accéder →</button>
         </div>
       </div>
-    
+
       <div id="achat-list" class="cards-container" style="margin-top:20px;">
-    
         <div class="card">
-          <img src="micro-ondes-blanc.jpeg">
+          <img src="micro-ondes-blanc.jpeg" alt="">
           <h3>Micro-ondes blanc</h3>
-          <p>📍 Villejuif, Bd. Maxime Gorki</p>
+          <p>📍 Villejuif</p>
           <p>État : Parfait</p>
-          <p>💶 Prix : 20 €</p>
-          <p>📅 Disponible demain et les 3 prochains jours, le matin jusqu’à 14h</p>
-          <p>📞 Contact : +33 7 72 18 24 94</p>
+          <p>💶 20 €</p>
+          <p>Disponible demain matin</p>
+          <p>📞 +33 7 72 18 24 94</p>
         </div>
-    
+
         <div class="card">
-          <img src="stepper.jpeg">
-          <h3>Stepper avec élastiques + écran digital</h3>
+          <img src="stepper.jpeg" alt="">
+          <h3>Stepper avec élastiques</h3>
           <p>📍 Choisy-le-Roi</p>
-          <p>État : Très bon, prêt à l’usage</p>
-          <p>💶 Prix : 40 €</p>
-          <p>📞 Contact : +33 7 59 22 71 44</p>
+          <p>Très bon état</p>
+          <p>💶 40 €</p>
+          <p>📞 +33 7 59 22 71 44</p>
         </div>
-    
+
         <div class="card">
-          <img src="chaussures-nike.jpeg">
+          <img src="chaussures-nike.jpeg" alt="">
           <h3>Chaussures Nike</h3>
-          <p>📍 Rouen, près du centre commercial Docks 76</p>
-          <p>Pointure : 42 — Neuf</p>
-          <p>💶 Prix : 40 €</p>
-          <p>📞 Contact : +33 7 65 69 41 03</p>
+          <p>📍 Rouen</p>
+          <p>42 — Neuf</p>
+          <p>💶 40 €</p>
+          <p>📞 +33 7 65 69 41 03</p>
         </div>
-    
+
         <div class="card">
-          <img src="micro-ondes-simple.jpeg">
-          <h3>Micro-ondes Simple</h3>
+          <img src="micro-ondes-simple.jpeg" alt="">
+          <h3>Micro-ondes simple</h3>
           <p>📍 Saint-Denis / Pierrefitte</p>
-          <p>État : Très bon, peu utilisé</p>
-          <p>💶 Prix : 40 € (négociable)</p>
-          <p>📞 Contact : 06 05 98 20 43</p>
+          <p>Très bon état</p>
+          <p>💶 40 €</p>
+          <p>📞 06 05 98 20 43</p>
         </div>
-    
+
         <div class="card">
-          <img src="baskets-nike.jpeg">
-          <h3>Baskets Nike NOCTA HOT STEP 2</h3>
-          <p>📍 Palaiseau (91120)</p>
-          <p>Pointure : 42 — Neuf</p>
-          <p>💶 Prix : 100 € (négociable)</p>
-          <p>📞 Contact : +33 7 51 28 10 28</p>
+          <img src="baskets-nike.jpeg" alt="">
+          <h3>Baskets Nike NOCTA</h3>
+          <p>📍 Palaiseau</p>
+          <p>42 — Neuf</p>
+          <p>💶 100 €</p>
+          <p>📞 +33 7 51 28 10 28</p>
         </div>
-    
+
         <div class="card">
-          <img src="velo-electrique.jpeg">
+          <img src="velo-electrique.jpeg" alt="">
           <h3>Vélo électrique</h3>
           <p>📍 Épinay-sur-Seine</p>
-          <p>État : Très bon</p>
-          <p>💶 Prix : 300 € (négociable)</p>
-          <p>📞 Contact : 07 53 54 73 62</p>
-          <p>Parfait pour vos trajets quotidiens ! 😀</p>
+          <p>Très bon état</p>
+          <p>💶 300 €</p>
+          <p>📞 07 53 54 73 62</p>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
     <div class="footer-container">
       <div class="footer-section">
         <h3>Le Coin Des Étudiants</h3>
         <p>La plateforme solidaire dédiée aux étudiants en France.</p>
       </div>
-  
+
       <div class="footer-section">
         <h3>Réseaux sociaux</h3>
         <ul>
           <li><a href="https://whatsapp.com/channel/0029VbAwDzD8fewrz5ocLE03">Canal WhatsApp</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-section">
         <h3>Contact</h3>
         <p>Email : contact@coindesetudiants.fr</p>
@@ -336,14 +291,14 @@
     </div>
     
     <div class="footer-bottom">
-        © 2025 Le Coin Des Étudiants — Tous droits réservés
+      © 2025 Le Coin Des Étudiants — Tous droits réservés
     </div>
   </footer>
-    
+
   <div id="donModal" class="don-modal">
     <div class="don-modal-content">
       <span class="don-modal-close">&times;</span>
-      <img id="modalImage" />
+      <img id="modalImage" alt="">
       <h2 id="modalTitle"></h2>
       <p id="modalLocalisation"></p>
       <p id="modalDescription"></p>
@@ -354,7 +309,7 @@
   <div id="serviceModal" class="service-modal">
     <div class="service-modal-content">
       <span class="service-modal-close">&times;</span>
-      <img id="serviceModalImage" />
+      <img id="serviceModalImage" alt="">
       <h2 id="serviceModalTitle"></h2>
       <p id="serviceModalLocalisation"></p>
       <p id="serviceModalDescription"></p>
@@ -362,9 +317,7 @@
       <p id="serviceModalPrice"></p>
     </div>
   </div>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
