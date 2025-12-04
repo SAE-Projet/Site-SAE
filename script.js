@@ -222,4 +222,35 @@ window.addEventListener("resize", () => {
     });
 });
 
+// Modal pour cartes services / ventes / achats
+const serviceCards = document.querySelectorAll('.service-card');
+const serviceModal = document.getElementById('serviceModal');
+const modalImage = document.getElementById('serviceModalImage');
+const modalTitle = document.getElementById('serviceModalTitle');
+const modalDescription = document.getElementById('serviceModalDescription');
+const modalLocalisation = document.getElementById('serviceModalLocalisation');
+const modalContact = document.getElementById('serviceModalContact');
+const modalPrice = document.getElementById('serviceModalPrice');
+const serviceModalClose = document.querySelector('.service-modal-close');
+
+serviceCards.forEach(card => {
+  card.addEventListener('click', () => {
+    modalImage.src = card.dataset.image || '';
+    modalTitle.textContent = card.dataset.title || '';
+    modalDescription.textContent = card.dataset.description || '';
+    modalLocalisation.textContent = card.dataset.localisation || '';
+    modalContact.textContent = card.dataset.contact || '';
+    modalPrice.textContent = card.dataset.price ? `Prix : ${card.dataset.price}` : '';
+    serviceModal.classList.add('active');
+  });
+});
+
+serviceModalClose.addEventListener('click', () => {
+  serviceModal.classList.remove('active');
+});
+
+serviceModal.addEventListener('click', e => {
+  if (e.target === serviceModal) serviceModal.classList.remove('active');
+});
+
 
