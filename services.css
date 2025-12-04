@@ -363,7 +363,7 @@ nav {
 
 #modalDescription,
 #modalContact {
-  color: #30ce27;
+  color: #333;
   font-size: 16px;
   margin-bottom: 10px;
   line-height: 1.4;
@@ -501,7 +501,6 @@ nav {
 
 .don-modal-content p {
   font-size: 14px;
-  font-color: #30ce27;
 }
 
 .logement-carousel-wrapper {
@@ -670,7 +669,6 @@ nav {
 
 .sales-card p {
   display: none; 
-  color: #30ce27;
 }
 
 .sales-card.centered {
