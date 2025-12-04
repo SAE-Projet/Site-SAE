@@ -930,6 +930,16 @@ footer p {
     max-width: 90%;
   }
 
+  .logement-card {
+    min-width: 200px;
+    max-width: 280px;
+  }
+  .logement-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
   .sales-purchases .cta-container {
     flex-direction: column;
     gap: 25px;
