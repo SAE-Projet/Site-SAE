@@ -448,14 +448,13 @@ nav {
 }
 
 .carousel-viewport {
-  width: 100%;
-  overflow: hidden;
+  overflow-x: auto; 
+  scroll-behavior: smooth;
 }
 
 .carousel {
   display: flex;
-  width: 100%;
-  transition: transform 0.4s ease;
+  gap: 20px; 
 }
 
 .carousel-container,
@@ -464,9 +463,9 @@ nav {
   background: #transparent;
 }
 
+
 .avis {
-  width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 300px; 
   background: #ffffff;
   padding: 30px;
   border-radius: 30px;
