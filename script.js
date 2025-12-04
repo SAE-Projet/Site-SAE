@@ -54,8 +54,9 @@ const nextAvis = document.getElementById('next');
 
 if (avisCarousel && prevAvis && nextAvis) {
   const card = avisCarousel.querySelector('.avis');
-  const cardWidth = card.getBoundingClientRect().width;
-  const gap = parseFloat(getComputedStyle(avisCarousel).gap) || 20;
+  const cardWidth = card.offsetWidth;
+  const gap = 20;
+
 
   prevAvis.addEventListener('click', () => {
     avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
@@ -177,3 +178,4 @@ serviceModalClose.addEventListener('click', () => serviceModal.classList.remove(
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
+
