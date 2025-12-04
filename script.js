@@ -55,20 +55,21 @@ const nextAvis = document.getElementById('next');
 if (avisCarousel && prevAvis && nextAvis) {
   const card = avisCarousel.querySelector('.avis');
   const cardWidth = card.offsetWidth;
-  const gap = 20;
-
+  const gap = 20; 
 
   prevAvis.addEventListener('click', () => {
     avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
   });
+
   nextAvis.addEventListener('click', () => {
     avisCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
   });
 
-  let isDown = false, startX = 0, scrollStart = 0;
+  let isDown = false, startX, scrollStart;
+
   avisCarousel.addEventListener('pointerdown', e => {
     isDown = true;
-    startX = e.clientX;
+    startX = e.pageX - avisCarousel.offsetLeft;
     scrollStart = avisCarousel.scrollLeft;
     avisCarousel.style.cursor = 'grabbing';
     avisCarousel.setPointerCapture?.(e.pointerId);
@@ -76,19 +77,21 @@ if (avisCarousel && prevAvis && nextAvis) {
 
   avisCarousel.addEventListener('pointermove', e => {
     if (!isDown) return;
-    const dx = startX - e.clientX;
-    avisCarousel.scrollLeft = scrollStart + dx;
+    e.preventDefault();
+    const x = e.pageX - avisCarousel.offsetLeft;
+    const walk = (x - startX);
+    avisCarousel.scrollLeft = scrollStart - walk;
   });
 
   const endPointer = () => {
-    if (!isDown) return;
     isDown = false;
     avisCarousel.style.cursor = '';
   };
+
   avisCarousel.addEventListener('pointerup', endPointer);
   avisCarousel.addEventListener('pointercancel', endPointer);
+  avisCarousel.addEventListener('pointerleave', endPointer);
 
-  // Flèches clavier
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft') avisCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
     if (e.key === 'ArrowRight') avisCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
@@ -178,4 +181,5 @@ serviceModalClose.addEventListener('click', () => serviceModal.classList.remove(
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
+
 
