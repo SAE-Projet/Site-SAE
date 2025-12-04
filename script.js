@@ -115,7 +115,7 @@ const modalPrice = document.getElementById('serviceModalPrice');
 const serviceModalClose = document.querySelector('.service-modal-close');
 
 document.body.addEventListener('click', (e) => {
-  const card = e.target.closest('.service-card');
+  const card = e.target.closest('.service-card, .don-card, .logement-card, .card');
   if (!card) return;
 
   modalImage.src = card.dataset.image || '';
@@ -130,4 +130,5 @@ document.body.addEventListener('click', (e) => {
 
 serviceModalClose.addEventListener('click', () => serviceModal.classList.remove('active'));
 serviceModal.addEventListener('click', e => { if (e.target === serviceModal) serviceModal.classList.remove('active'); });
+
 
