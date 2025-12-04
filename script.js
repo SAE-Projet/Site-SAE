@@ -2,6 +2,7 @@ const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 const overlay = document.getElementById('menu-overlay');
 
+// Menu burger
 function toggleMenu() {
   const isOpen = navLinks.classList.toggle('active');
   burger.classList.toggle('open', isOpen);
@@ -23,8 +24,8 @@ navLinks?.querySelectorAll('a').forEach(link => {
   });
 });
 
-const compteurs = document.querySelectorAll('.compteur');
-compteurs.forEach(compteur => {
+// Compteurs animés
+document.querySelectorAll('.compteur').forEach(compteur => {
   const target = +compteur.dataset.target;
   let count = 0;
   const increment = Math.ceil(target / 200);
@@ -38,6 +39,7 @@ compteurs.forEach(compteur => {
   update();
 });
 
+// Animation separator
 const separator = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -49,6 +51,7 @@ const separator = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.separator-line').forEach(line => separator.observe(line));
 
+// Carousels (dons et logements)
 (function() {
   const wrappers = document.querySelectorAll('.don-carousel-wrapper, .logement-carousel-wrapper');
 
@@ -104,7 +107,7 @@ document.querySelectorAll('.separator-line').forEach(line => separator.observe(l
   });
 })();
 
-
+// Popup pour toutes les cartes (dons, logements, ventes)
 const serviceModal = document.getElementById('serviceModal');
 const modalImage = document.getElementById('serviceModalImage');
 const modalTitle = document.getElementById('serviceModalTitle');
@@ -118,18 +121,32 @@ document.body.addEventListener('click', (e) => {
   const card = e.target.closest('.don-card, .logement-card, .sales-card');
   if (!card) return;
 
-  modalImage.src = card.dataset.image || '';
-  modalTitle.textContent = card.dataset.title || '';
-  modalDescription.innerHTML = card.dataset.description || '';
-  modalLocalisation.textContent = card.dataset.localisation || '';
+  // Image
+  modalImage.src = card.querySelector('img')?.src || card.dataset.image || '';
+
+  // Titre
+  modalTitle.textContent = card.dataset.title || card.querySelector('h3')?.textContent || '';
+
+  // Description (dataset ou hidden-info pour logements)
+  let description = card.dataset.description || '';
+  const hiddenInfo = card.querySelector('.hidden-info');
+  if (hiddenInfo) description = hiddenInfo.innerHTML;
+  modalDescription.innerHTML = description;
+
+  // Localisation
+  modalLocalisation.textContent = card.dataset.localisation || card.querySelector('.localisation')?.textContent || '';
+
+  // Contact
   modalContact.textContent = card.dataset.contact || '';
+
+  // Prix
   modalPrice.textContent = card.dataset.price ? `Prix : ${card.dataset.price}` : '';
 
   serviceModal.classList.add('active');
 });
 
+// Fermer popup
 serviceModalClose.addEventListener('click', () => serviceModal.classList.remove('active'));
-serviceModal.addEventListener('click', e => { if (e.target === serviceModal) serviceModal.classList.remove('active'); });
-
-
-
+serviceModal.addEventListener('click', e => {
+  if (e.target === serviceModal) serviceModal.classList.remove('active');
+});
