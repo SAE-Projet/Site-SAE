@@ -130,3 +130,4 @@ document.body.addEventListener('click', (e) => {
 
 serviceModalClose.addEventListener('click', () => serviceModal.classList.remove('active'));
 serviceModal.addEventListener('click', e => { if (e.target === serviceModal) serviceModal.classList.remove('active'); });
+
