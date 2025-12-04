@@ -971,20 +971,33 @@ footer p {
     max-width: 90%;
   }
 
-  cta-container {
+  .cta-container {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin: 0 auto;
-    padding: 0 10px;
+    margin: 0 auto;         
+    padding: 0 10px;        
   }
 
   .cta-card {
-    width: 100%;       /* occupe presque toute la largeur de l'écran */
-    max-width: 300px;  /* limite la largeur pour ne pas être trop large */
-    text-align: center; /* centre le texte à l'intérieur de chaque carte */
+    width: 100%;            
+    max-width: 300px;       
+    text-align: center;     
+    height: auto; 
+    padding: 20px; 
+    box-sizing: border-box; 
   }
+
+  .cta-card p {
+    margin-bottom: 15px;    
+  }
+
+  .cta-card button {
+    width: auto;
+    padding: 10px 25px;     
+  }
+}
 
   .logement-card {
     min-width: 200px;
