@@ -24,7 +24,6 @@ navLinks?.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Compteurs animés
 document.querySelectorAll('.compteur').forEach(compteur => {
   const target = +compteur.dataset.target;
   let count = 0;
@@ -39,7 +38,6 @@ document.querySelectorAll('.compteur').forEach(compteur => {
   update();
 });
 
-// Animation separator
 const separator = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -51,7 +49,24 @@ const separator = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.separator-line').forEach(line => separator.observe(line));
 
-// Carousels (dons et logements)
+const carousel = document.getElementById('carousel');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+
+if (carousel && prev && next) {
+  const card = carousel.querySelector('.avis');
+  const cardWidth = card.getBoundingClientRect().width;
+  const gap = parseFloat(getComputedStyle(carousel).gap) || 20; // prend en compte l'espace entre les cartes
+
+  prev.addEventListener('click', () => {
+    carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+  });
+
+  next.addEventListener('click', () => {
+    carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+  });
+}
+
 (function() {
   const wrappers = document.querySelectorAll('.don-carousel-wrapper, .logement-carousel-wrapper');
 
@@ -107,7 +122,6 @@ document.querySelectorAll('.separator-line').forEach(line => separator.observe(l
   });
 })();
 
-// Popup pour toutes les cartes (dons, logements, ventes)
 const serviceModal = document.getElementById('serviceModal');
 const modalImage = document.getElementById('serviceModalImage');
 const modalTitle = document.getElementById('serviceModalTitle');
@@ -120,28 +134,15 @@ const serviceModalClose = document.querySelector('.service-modal-close');
 document.body.addEventListener('click', (e) => {
   const card = e.target.closest('.don-card, .logement-card, .sales-card');
   if (!card) return;
-
-  // Image
   modalImage.src = card.querySelector('img')?.src || card.dataset.image || '';
-
-  // Titre
   modalTitle.textContent = card.dataset.title || card.querySelector('h3')?.textContent || '';
-
-  // Description (dataset ou hidden-info pour logements)
   let description = card.dataset.description || '';
   const hiddenInfo = card.querySelector('.hidden-info');
   if (hiddenInfo) description = hiddenInfo.innerHTML;
   modalDescription.innerHTML = description;
-
-  // Localisation
   modalLocalisation.textContent = card.dataset.localisation || card.querySelector('.localisation')?.textContent || '';
-
-  // Contact
   modalContact.textContent = card.dataset.contact || '';
-
-  // Prix
   modalPrice.textContent = card.dataset.price ? `Prix : ${card.dataset.price}` : '';
-
   serviceModal.classList.add('active');
 });
 
@@ -150,3 +151,4 @@ serviceModalClose.addEventListener('click', () => serviceModal.classList.remove(
 serviceModal.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
+
