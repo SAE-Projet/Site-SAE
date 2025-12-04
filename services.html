@@ -198,73 +198,85 @@
 
     <section class="service-section sales-purchases">
       <h2>Ventes et Achats</h2>
-
+    
       <div class="cta-container">
         <div class="cta-card">
           <p>Vous souhaitez vendre un article ?</p>
           <button onclick="window.location.href='contact.html?type=Vendre%20un%20produit'">Accéder →</button>
         </div>
-
+    
         <div class="cta-card">
           <p>Vous souhaitez acheter un article ?</p>
-          <button onclick="window.location.href='#achat-list'">Accéder →</button>
+          <button onclick="window.location.href='contact.html?type=Acheter%20un%20produit'">Accéder →</button>
         </div>
       </div>
-
+    
       <div id="achat-list" class="cards-container" style="margin-top:20px;">
-        <div class="card">
+    
+        <div class="card"
+            data-image="micro-ondes-blanc.jpeg"
+            data-title="Micro-ondes blanc"
+            data-localisation="Villejuif"
+            data-description="État : Parfait<br>Disponible demain matin"
+            data-price="20 €"
+            data-contact="+33 7 72 18 24 94">
           <img src="micro-ondes-blanc.jpeg" alt="">
           <h3>Micro-ondes blanc</h3>
-          <p>📍 Villejuif</p>
-          <p>État : Parfait</p>
-          <p>💶 20 €</p>
-          <p>Disponible demain matin</p>
-          <p>📞 +33 7 72 18 24 94</p>
         </div>
-
-        <div class="card">
+        
+        <div class="card"
+            data-image="stepper.jpeg"
+            data-title="Stepper avec élastiques"
+            data-localisation="Choisy-le-Roi"
+            data-description="Très bon état"
+            data-price="40 €"
+            data-contact="+33 7 59 22 71 44">
           <img src="stepper.jpeg" alt="">
           <h3>Stepper avec élastiques</h3>
-          <p>📍 Choisy-le-Roi</p>
-          <p>Très bon état</p>
-          <p>💶 40 €</p>
-          <p>📞 +33 7 59 22 71 44</p>
         </div>
-
-        <div class="card">
+    
+        <div class="card"
+            data-image="chaussures-nike.jpeg"
+            data-title="Chaussures Nike"
+            data-localisation="Rouen"
+            data-description="42 — Neuf"
+            data-price="40 €"
+            data-contact="+33 7 65 69 41 03">
           <img src="chaussures-nike.jpeg" alt="">
           <h3>Chaussures Nike</h3>
-          <p>📍 Rouen</p>
-          <p>42 — Neuf</p>
-          <p>💶 40 €</p>
-          <p>📞 +33 7 65 69 41 03</p>
         </div>
-
-        <div class="card">
+    
+        <div class="card"
+            data-image="micro-ondes-simple.jpeg"
+            data-title="Micro-ondes simple"
+            data-localisation="Saint-Denis / Pierrefitte"
+            data-description="Très bon état"
+            data-price="40 €"
+            data-contact="06 05 98 20 43">
           <img src="micro-ondes-simple.jpeg" alt="">
           <h3>Micro-ondes simple</h3>
-          <p>📍 Saint-Denis / Pierrefitte</p>
-          <p>Très bon état</p>
-          <p>💶 40 €</p>
-          <p>📞 06 05 98 20 43</p>
         </div>
-
-        <div class="card">
+    
+        <div class="card"
+            data-image="baskets-nike.jpeg"
+            data-title="Baskets Nike NOCTA"
+            data-localisation="Palaiseau"
+            data-description="42 — Neuf"
+            data-price="100 €"
+            data-contact="+33 7 51 28 10 28">
           <img src="baskets-nike.jpeg" alt="">
           <h3>Baskets Nike NOCTA</h3>
-          <p>📍 Palaiseau</p>
-          <p>42 — Neuf</p>
-          <p>💶 100 €</p>
-          <p>📞 +33 7 51 28 10 28</p>
         </div>
-
-        <div class="card">
+    
+        <div class="card"
+            data-image="velo-electrique.jpeg"
+            data-title="Vélo électrique"
+            data-localisation="Épinay-sur-Seine"
+            data-description="Très bon état"
+            data-price="300 €"
+            data-contact="07 53 54 73 62">
           <img src="velo-electrique.jpeg" alt="">
           <h3>Vélo électrique</h3>
-          <p>📍 Épinay-sur-Seine</p>
-          <p>Très bon état</p>
-          <p>💶 300 €</p>
-          <p>📞 07 53 54 73 62</p>
         </div>
       </div>
     </section>
@@ -321,3 +333,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
