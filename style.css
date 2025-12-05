@@ -497,7 +497,7 @@ nav {
 }
 
 .stars span {
-  color: #f5c518; 
+  color: #f5c518 !important; 
   font-size: 1.2rem;
 }
 
