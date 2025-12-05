@@ -69,7 +69,7 @@ document.querySelectorAll(".don-card").forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("modalImage").src = card.dataset.image;
     document.getElementById("modalTitle").textContent = card.dataset.title;
-    document.getElementById("modalLocalisation").textContent = card.dataset.localisation;
+    document.getElementById("modalLocalisation").textContent = "📍 " + card.dataset.localisation;
     document.getElementById("modalDescription").textContent = card.dataset.description;
     document.getElementById("modalContact").textContent = card.dataset.contact;
     donModal.style.display = "flex";
@@ -119,10 +119,10 @@ document.querySelectorAll(".sales-card").forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("serviceModalImage").src = card.dataset.image;
     document.getElementById("serviceModalTitle").textContent = card.dataset.title;
-    document.getElementById("serviceModalLocalisation").textContent = card.dataset.localisation;
+    document.getElementById("serviceModalLocalisation").textContent = "📍 " + card.dataset.localisation;
     document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
-    document.getElementById("serviceModalContact").textContent = "Contact : " + card.dataset.contact;
-    document.getElementById("serviceModalPrice").textContent = "Prix : " + card.dataset.price;
+    document.getElementById("serviceModalContact").textContent = "📞 Contact : " + card.dataset.contact;
+    document.getElementById("serviceModalPrice").textContent = "💶 Prix : " + card.dataset.price;
     serviceModal.style.display = "flex";
   });
 });
@@ -133,9 +133,9 @@ logementCards.forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("serviceModalImage").src = card.dataset.image;
     document.getElementById("serviceModalTitle").textContent = card.dataset.title;
-    document.getElementById("serviceModalLocalisation").textContent = card.dataset.localisation;
+    document.getElementById("serviceModalLocalisation").textContent = "📍 " + card.dataset.localisation;
     document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
-    document.getElementById("serviceModalContact").textContent = "Contact : " + (card.dataset.contact || "Non renseigné");
+    document.getElementById("serviceModalContact").textContent = "📞 Contact : " + (card.dataset.contact || "Non renseigné");
     document.getElementById("serviceModalPrice").textContent = "";
     serviceModal.style.display = "flex";
   });
@@ -178,3 +178,4 @@ document.querySelectorAll(".logement-carousel-wrapper").forEach(wrapper => {
 
   window.addEventListener("resize", update);
 });
+
