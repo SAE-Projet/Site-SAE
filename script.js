@@ -56,7 +56,6 @@ if (carousel && prevBtn && nextBtn) {
   const slides = Array.from(carousel.children);
   const slideWidth = slides[0].offsetWidth;
 
-  
   const firstClone = slides[0].cloneNode(true);
   const lastClone = slides[slides.length - 1].cloneNode(true);
 
@@ -66,7 +65,7 @@ if (carousel && prevBtn && nextBtn) {
   carousel.appendChild(firstClone);
   carousel.insertBefore(lastClone, slides[0]);
 
-  let currentIndex = 1; 
+  let currentIndex = 1;
   carousel.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
   carousel.style.transition = 'transform 0.4s ease';
 
@@ -81,17 +80,16 @@ if (carousel && prevBtn && nextBtn) {
   };
 
   nextBtn.addEventListener('click', () => {
-    if (currentIndex >= slides.length + 1) return;
     currentIndex++;
     updateCarousel();
   });
 
   prevBtn.addEventListener('click', () => {
-    if (currentIndex <= 0) return;
     currentIndex--;
     updateCarousel();
   });
 
+  // Swipe
   let startX = 0;
   let isDragging = false;
 
@@ -111,13 +109,13 @@ if (carousel && prevBtn && nextBtn) {
   const endDrag = e => {
     if (!isDragging) return;
     isDragging = false;
+
     const dx = e.clientX - startX;
     carousel.style.transition = 'transform 0.4s ease';
-    if (dx > 50) { 
-      currentIndex--;
-    } else if (dx < -50) { 
-      currentIndex++;
-    }
+
+    if (dx > 50) currentIndex--;
+    else if (dx < -50) currentIndex++;
+
     updateCarousel();
   };
 
@@ -152,14 +150,7 @@ if (carousel && prevBtn && nextBtn) {
   nextBtn.addEventListener('click', resetAutoSlide);
   prevBtn.addEventListener('click', resetAutoSlide);
   carousel.addEventListener('pointerup', resetAutoSlide);
-  carousel.addEventListener('pointercancel', resetAutoSlide);
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') prevBtn.click();
-    if (e.key === 'ArrowRight') nextBtn.click();
-  });
 }
-
 
 (function() {
   const wrappers = document.querySelectorAll('.don-carousel-wrapper, .logement-carousel-wrapper');
@@ -180,6 +171,7 @@ if (carousel && prevBtn && nextBtn) {
     leftArrow?.addEventListener('click', () => {
       carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
     });
+
     rightArrow?.addEventListener('click', () => {
       carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
     });
@@ -205,13 +197,9 @@ if (carousel && prevBtn && nextBtn) {
       isDown = false;
       carousel.style.cursor = '';
     };
+
     carousel.addEventListener('pointerup', endPointer);
     carousel.addEventListener('pointercancel', endPointer);
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-      if (e.key === 'ArrowRight') carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-    });
   });
 })();
 
@@ -228,20 +216,23 @@ const serviceModalClose = document.querySelector('.service-modal-close');
 document.body.addEventListener('click', (e) => {
   const card = e.target.closest('.don-card, .logement-card, .sales-card');
   if (!card) return;
+
   modalImage.src = card.querySelector('img')?.src || card.dataset.image || '';
   modalTitle.textContent = card.dataset.title || card.querySelector('h3')?.textContent || '';
+
   let description = card.dataset.description || '';
   const hiddenInfo = card.querySelector('.hidden-info');
   if (hiddenInfo) description = hiddenInfo.innerHTML;
+
   modalDescription.innerHTML = description;
-  modalLocalisation.textContent = card.dataset.localisation || card.querySelector('.localisation')?.textContent || '';
+  modalLocalisation.textContent = card.dataset.localisation || '';
   modalContact.textContent = card.dataset.contact || '';
   modalPrice.textContent = card.dataset.price ? `Prix : ${card.dataset.price}` : '';
+
   serviceModal.classList.add('active');
 });
 
-serviceModalClose.addEventListener('click', () => serviceModal.classList.remove('active'));
-serviceModal.addEventListener('click', e => {
+serviceModalClose?.addEventListener('click', () => serviceModal.classList.remove('active'));
+serviceModal?.addEventListener('click', e => {
   if (e.target === serviceModal) serviceModal.classList.remove('active');
 });
-
