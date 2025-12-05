@@ -127,6 +127,20 @@ document.querySelectorAll(".sales-card").forEach(card => {
   });
 });
 
+const logementCards = document.querySelectorAll(".logement-card");
+
+logementCards.forEach(card => {
+  card.addEventListener("click", () => {
+    document.getElementById("serviceModalImage").src = card.dataset.image;
+    document.getElementById("serviceModalTitle").textContent = card.dataset.title;
+    document.getElementById("serviceModalLocalisation").textContent = card.dataset.localisation;
+    document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
+    document.getElementById("serviceModalContact").textContent = "Contact : " + (card.dataset.contact || "Non renseigné");
+    document.getElementById("serviceModalPrice").textContent = "";
+    serviceModal.style.display = "flex";
+  });
+});
+
 serviceModalClose?.addEventListener("click", () => {
   serviceModal.style.display = "none";
 });
