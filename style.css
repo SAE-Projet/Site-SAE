@@ -921,19 +921,47 @@ footer p {
   .arrow.right { right: 5px; }
 
   footer {
-    padding: 20px 15px;
-    text-align: center;
+    padding: 40px 15px;
+    text-align: center; 
   }
 
-  footer .footer-columns {
+  .footer-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 25px;
+    padding: 0;
   }
 
-  footer img {
-    max-width: 150px;
-    height: auto;
+  .footer-section {
+    text-align: center !important;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  footer p,
+  footer ul li a {
+    font-size: 0.95rem;
+    text-align: center; 
+  }
+
+  footer ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  footer ul li {
+    margin: 5px 0;
+  }
+
+  .footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 0.85rem;
+    text-align: center;
   }
 }
 
