@@ -928,6 +928,10 @@ footer p {
     border-radius: 2px;
   }
 
+  .service-modal-content {
+    width: 100%;
+  }
+  
   .logo {
     margin: 0 auto;
   }
