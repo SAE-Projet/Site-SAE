@@ -42,8 +42,9 @@ if (donCarousel && leftArrow && rightArrow) {
   let index = 0;
 
   const updateDonCarousel = () => {
-    const cardWidth = donCarousel.children[0].offsetWidth + 20;
-    donCarousel.style.transform = `translateX(${-index * cardWidth}px)`;
+    const cardWidth = donCarousel.children[0].offsetWidth;
+    const gap = parseInt(window.getComputedStyle(donCarousel).columnGap || 20);
+    donCarousel.style.transform = `translateX(${-index * (cardWidth + gap)}px)`;
   };
 
   rightArrow.addEventListener("click", () => {
@@ -71,12 +72,11 @@ document.querySelectorAll(".don-card").forEach(card => {
     document.getElementById("modalLocalisation").textContent = card.dataset.localisation;
     document.getElementById("modalDescription").textContent = card.dataset.description;
     document.getElementById("modalContact").textContent = card.dataset.contact;
-
     donModal.style.display = "flex";
   });
 });
 
-donModalClose.addEventListener("click", () => {
+donModalClose?.addEventListener("click", () => {
   donModal.style.display = "none";
 });
 
@@ -92,8 +92,9 @@ if (salesCarousel && salesPrev && salesNext) {
   let saleIndex = 0;
 
   const updateSales = () => {
-    const cardWidth = salesCarousel.children[0].offsetWidth + 20;
-    salesCarousel.style.transform = `translateX(${-saleIndex * cardWidth}px)`;
+    const width = salesCarousel.children[0].offsetWidth;
+    const gap = parseInt(window.getComputedStyle(salesCarousel).columnGap || 20);
+    salesCarousel.style.transform = `translateX(${-saleIndex * (width + gap)}px)`;
   };
 
   salesNext.addEventListener("click", () => {
@@ -122,12 +123,11 @@ document.querySelectorAll(".sales-card").forEach(card => {
     document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
     document.getElementById("serviceModalContact").textContent = "Contact : " + card.dataset.contact;
     document.getElementById("serviceModalPrice").textContent = "Prix : " + card.dataset.price;
-
     serviceModal.style.display = "flex";
   });
 });
 
-serviceModalClose.addEventListener("click", () => {
+serviceModalClose?.addEventListener("click", () => {
   serviceModal.style.display = "none";
 });
 
@@ -143,8 +143,9 @@ document.querySelectorAll(".logement-carousel-wrapper").forEach(wrapper => {
   let index = 0;
 
   const update = () => {
-    const width = carousel.children[0].offsetWidth + 20;
-    carousel.style.transform = `translateX(${-index * width}px)`;
+    const cardWidth = carousel.children[0].offsetWidth;
+    const gap = parseInt(window.getComputedStyle(carousel).columnGap || 20);
+    carousel.style.transform = `translateX(${-index * (cardWidth + gap)}px)`;
   };
 
   nextBtn?.addEventListener("click", () => {
@@ -160,4 +161,6 @@ document.querySelectorAll(".logement-carousel-wrapper").forEach(wrapper => {
       update();
     }
   });
+
+  window.addEventListener("resize", update);
 });
