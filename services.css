@@ -192,11 +192,11 @@ nav {
 }
 
 .service-modal-content {
-  max-width: 360px;
-  width: 90%;
-  border-radius: 16px;
+  width: clamp(300px, 50%, 600px);; 
+  max-width: 50%;
   padding: 20px;
   background: white;
+  border-radius: 16px;
   text-align: center;
   animation: popup 0.25s ease;
 }
