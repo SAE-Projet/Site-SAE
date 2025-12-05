@@ -929,7 +929,15 @@ footer p {
   }
 
   .service-modal-content {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
   }
   
   .logo {
