@@ -42,8 +42,10 @@ if (donCarousel && leftArrow && rightArrow) {
   let index = 0;
 
   const updateDonCarousel = () => {
-    const cardWidth = donCarousel.children[0].offsetWidth;
-    const gap = parseInt(window.getComputedStyle(donCarousel).columnGap || 20);
+    const firstCard = donCarousel.children[0];
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const style = window.getComputedStyle(firstCard);
+    const gap = parseFloat(style.marginRight) || 0;
     donCarousel.style.transform = `translateX(${-index * (cardWidth + gap)}px)`;
   };
 
@@ -92,9 +94,11 @@ if (salesCarousel && salesPrev && salesNext) {
   let saleIndex = 0;
 
   const updateSales = () => {
-    const width = salesCarousel.children[0].offsetWidth;
-    const gap = parseInt(window.getComputedStyle(salesCarousel).columnGap || 20);
-    salesCarousel.style.transform = `translateX(${-saleIndex * (width + gap)}px)`;
+    const firstCard = salesCarousel.children[0];
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const style = window.getComputedStyle(firstCard);
+    const gap = parseFloat(style.marginRight) || 0;
+    salesCarousel.style.transform = `translateX(${-saleIndex * (cardWidth + gap)}px)`;
   };
 
   salesNext.addEventListener("click", () => {
@@ -157,8 +161,10 @@ document.querySelectorAll(".logement-carousel-wrapper").forEach(wrapper => {
   let index = 0;
 
   const update = () => {
-    const cardWidth = carousel.children[0].offsetWidth;
-    const gap = parseInt(window.getComputedStyle(carousel).columnGap || 20);
+    const firstCard = carousel.children[0];
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const style = window.getComputedStyle(firstCard);
+    const gap = parseFloat(style.marginRight) || 0;
     carousel.style.transform = `translateX(${-index * (cardWidth + gap)}px)`;
   };
 
@@ -178,4 +184,5 @@ document.querySelectorAll(".logement-carousel-wrapper").forEach(wrapper => {
 
   window.addEventListener("resize", update);
 });
+
 
