@@ -1,6 +1,3 @@
-/* ============================
-        MENU BURGER
-============================ */
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 const overlay = document.getElementById('menu-overlay');
@@ -26,10 +23,6 @@ navLinks?.querySelectorAll('a').forEach(link => {
   });
 });
 
-
-/* ============================
-      COMPTEURS ANIMÉS
-============================ */
 document.querySelectorAll('.compteur').forEach(compteur => {
   const target = +compteur.dataset.target;
   let count = 0;
@@ -44,10 +37,6 @@ document.querySelectorAll('.compteur').forEach(compteur => {
   update();
 });
 
-
-/* ============================
-   ANIMATION LIGNES SÉPARATEUR
-============================ */
 const separator = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -60,9 +49,6 @@ const separator = new IntersectionObserver(entries => {
 document.querySelectorAll('.separator-line').forEach(line => separator.observe(line));
 
 
-/* ============================
-   CAROUSEL PAGE ACCUEIL
-============================ */
 const carousel = document.getElementById('carousel');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -105,7 +91,6 @@ if (carousel && prevBtn && nextBtn) {
     updateCarousel();
   });
 
-  /* Swipe */
   let startX = 0;
   let isDragging = false;
 
@@ -138,7 +123,6 @@ if (carousel && prevBtn && nextBtn) {
   carousel.addEventListener('pointercancel', endDrag);
   carousel.addEventListener('pointerleave', endDrag);
 
-  /* Boucle infinie */
   carousel.addEventListener('transitionend', () => {
     if (carousel.children[currentIndex].id === 'first-clone') {
       currentIndex = 1;
@@ -150,7 +134,6 @@ if (carousel && prevBtn && nextBtn) {
     }
   });
 
-  /* Auto-slide */
   let autoSlide = setInterval(() => {
     currentIndex++;
     updateCarousel();
@@ -175,114 +158,85 @@ if (carousel && prevBtn && nextBtn) {
   });
 }
 
+const donCarousel = document.getElementById("donCarousel");
+const leftDon = document.getElementById("leftArrow");
+const rightDon = document.getElementById("rightArrow");
 
-/* ============================
-   FONCTION GÉNÉRIQUE CAROUSELS
-============================ */
-function initCarousel(wrapperSelector, carouselSelector, prevSelector, nextSelector) {
-  document.querySelectorAll(wrapperSelector).forEach(wrapper => {
-    const carousel = wrapper.querySelector(carouselSelector);
-    const prevBtn = wrapper.querySelector(prevSelector);
-    const nextBtn = wrapper.querySelector(nextSelector);
+rightDon.addEventListener("click", () => {
+  donCarousel.scrollBy({ left: 300, behavior: "smooth" });
+});
 
-    if (!carousel || !prevBtn || !nextBtn) return;
+leftDon.addEventListener("click", () => {
+  donCarousel.scrollBy({ left: -300, behavior: "smooth" });
+});
 
-    let index = 0;
+const logementCarousel = document.querySelector(".logement-carousel");
+const logementArrows = document.querySelectorAll(".logement-arrow");
 
-    const update = () => {
-      const width = carousel.children[0].offsetWidth;
-      const gap = parseInt(window.getComputedStyle(carousel).columnGap || 20);
-      carousel.style.transform = `translateX(${-index * (width + gap)}px)`;
-    };
+logementArrows[1].addEventListener("click", () => {
+  logementCarousel.scrollBy({ left: 300, behavior: "smooth" });
+});
 
-    nextBtn.onclick = () => {
-      if (index < carousel.children.length - 1) {
-        index++;
-        update();
-      }
-    };
-
-    prevBtn.onclick = () => {
-      if (index > 0) {
-        index--;
-        update();
-      }
-    };
-
-    window.addEventListener("resize", update);
-  });
-}
-
-/* ====== Initialisation des 3 carousels Services ====== */
-initCarousel(".don-carousel-wrapper", ".don-carousel", ".don-arrow.left", ".don-arrow.right");
-initCarousel(".logement-carousel-wrapper", ".logement-carousel", ".logement-arrow.left", ".logement-arrow.right");
-initCarousel(".sales-carousel-wrapper", ".sales-carousel", ".sales-arrow.left", ".sales-arrow.right");
+logementArrows[0].addEventListener("click", () => {
+  logementCarousel.scrollBy({ left: -300, behavior: "smooth" });
+});
 
 
-/* ============================
-      MODAL DONS
-============================ */
+const salesCarousel = document.querySelector(".sales-carousel");
+const salesArrows = document.querySelectorAll(".sales-arrow");
+
+salesArrows[1].addEventListener("click", () => {
+  salesCarousel.scrollBy({ left: 300, behavior: "smooth" });
+});
+
+salesArrows[0].addEventListener("click", () => {
+  salesCarousel.scrollBy({ left: -300, behavior: "smooth" });
+});
+
+
+const donCards = document.querySelectorAll(".don-card");
 const donModal = document.getElementById("donModal");
-const donModalClose = document.querySelector(".don-modal-close");
+const closeDonModal = document.querySelector(".don-modal-close");
 
-document.querySelectorAll(".don-card").forEach(card => {
+donCards.forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("modalImage").src = card.dataset.image;
-    document.getElementById("modalTitle").textContent = card.dataset.title;
-    document.getElementById("modalLocalisation").textContent = "📍 " + card.dataset.localisation;
-    document.getElementById("modalDescription").textContent = card.dataset.description;
-    document.getElementById("modalContact").textContent = card.dataset.contact;
+    document.getElementById("modalTitle").innerText = card.dataset.title;
+    document.getElementById("modalLocalisation").innerText = card.dataset.localisation;
+    document.getElementById("modalDescription").innerText = card.dataset.description;
+    document.getElementById("modalContact").innerText = card.dataset.contact;
+
     donModal.style.display = "flex";
   });
 });
 
-donModalClose?.addEventListener("click", () => {
+closeDonModal.addEventListener("click", () => {
   donModal.style.display = "none";
 });
 
-window.addEventListener("click", e => {
-  if (e.target === donModal) donModal.style.display = "none";
-});
-
-
-/* ============================
-      MODAL VENTES
-============================ */
+const serviceCards = document.querySelectorAll(".sales-card, .logement-card");
 const serviceModal = document.getElementById("serviceModal");
-const serviceModalClose = document.querySelector(".service-modal-close");
+const closeServiceModal = document.querySelector(".service-modal-close");
 
-document.querySelectorAll(".sales-card").forEach(card => {
+serviceCards.forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("serviceModalImage").src = card.dataset.image;
-    document.getElementById("serviceModalTitle").textContent = card.dataset.title;
-    document.getElementById("serviceModalLocalisation").textContent = "📍 " + card.dataset.localisation;
+    document.getElementById("serviceModalTitle").innerText = card.dataset.title;
+    document.getElementById("serviceModalLocalisation").innerText = card.dataset.localisation;
     document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
-    document.getElementById("serviceModalContact").textContent = "📞 Contact : " + card.dataset.contact;
-    document.getElementById("serviceModalPrice").textContent = "💶 Prix : " + card.dataset.price;
+    document.getElementById("serviceModalContact").innerText = card.dataset.contact || "";
+    document.getElementById("serviceModalPrice").innerText = card.dataset.price || "";
+
     serviceModal.style.display = "flex";
   });
 });
 
-
-/* ============================
-      MODAL LOGEMENTS
-============================ */
-document.querySelectorAll(".logement-card").forEach(card => {
-  card.addEventListener("click", () => {
-    document.getElementById("serviceModalImage").src = card.dataset.image;
-    document.getElementById("serviceModalTitle").textContent = card.dataset.title;
-    document.getElementById("serviceModalLocalisation").textContent = "📍 " + card.dataset.localisation;
-    document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
-    document.getElementById("serviceModalContact").textContent = "📞 Contact : " + (card.dataset.contact || "Non renseigné");
-    document.getElementById("serviceModalPrice").textContent = "";
-    serviceModal.style.display = "flex";
-  });
-});
-
-serviceModalClose?.addEventListener("click", () => {
+closeServiceModal.addEventListener("click", () => {
   serviceModal.style.display = "none";
 });
 
-window.addEventListener("click", e => {
+
+window.addEventListener("click", (e) => {
+  if (e.target === donModal) donModal.style.display = "none";
   if (e.target === serviceModal) serviceModal.style.display = "none";
 });
