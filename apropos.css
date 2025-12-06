@@ -201,12 +201,12 @@ h2::after {
 
 .apropos-row {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap; 
   align-items: stretch;
-  justify-content: center;
-  width: 90%;
-  margin: 30px 0;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;    
+  max-width: 1300px;
+  margin: 40px auto;
 }
 
 .apropos-image {
@@ -215,7 +215,7 @@ h2::after {
 
 .apropos-image img {
   width: 100%;
-  max-width: 450px; 
+  max-width: 380px; 
   display: block;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.15);
@@ -223,11 +223,12 @@ h2::after {
 
 .text-part1, .text-part2 {
   flex: 1;
+  min-width: 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center; 
-  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
   line-height: 1.6;
   background: rgba(255,255,255,0.9);
   color: black;
