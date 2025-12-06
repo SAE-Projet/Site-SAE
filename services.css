@@ -800,11 +800,11 @@ footer * {
   text-align: left;
 }
 
-.footer-container > .footer-section:nth-child(2) {
+.footer-container > .footer-section:nth-child(3) {
   text-align: center;
 }
 
-.footer-container > .footer-section:nth-child(3) {
+.footer-container > .footer-section:nth-child(4) {
   text-align: right;
 }
 
