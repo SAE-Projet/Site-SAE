@@ -499,5 +499,29 @@ footer p {
     font-size: 0.85rem;
     text-align: center;
   }
+
+  .footer-nav-mobile {
+    display: block;
+    text-align: center;
+  }
+  
+  .footer-nav-mobile ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-nav-mobile ul li {
+    margin: 6px 0;
+  }
+  
+  .footer-nav-mobile ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .footer-nav-mobile ul li a:hover {
+    color: white;
+  }
 }
 }
