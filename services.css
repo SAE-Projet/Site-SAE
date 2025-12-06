@@ -136,6 +136,40 @@ nav {
   display: none; 
 }
 
+.page-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-title h1 {
+    font-size: 42px;
+    color:  #007bff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.title-underline {
+    width: 120px;
+    height: 5px;
+    margin: 12px auto 0;
+    background: linear-gradient(90deg, #1c95eb, #30ce27);
+    border-radius: 5px;
+
+    transform: scaleX(0);
+    animation: underline-grow 0.8s ease-out forwards;
+}
+
+@keyframes underline-grow {
+    to {
+        transform: scaleX(1);
+    }
+}
+
 .services-page {
   padding: 60px 5%;
   max-width: 1200px;
@@ -233,45 +267,6 @@ nav {
   font-size: 28px;
   cursor: pointer;
   color: #1c95eb;
-}
-
-.search-filter {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.search-bar {
-  padding: 10px 15px;
-  border-radius: 50px;
-  border: 2px solid #1c95eb;
-  width: 250px;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-.search-bar:focus {
-  outline: none;
-  border-color: #30ce27;
-  box-shadow: 0 0 8px rgba(48, 206, 39, 0.3);
-}
-
-.filter-select {
-  padding: 10px 15px;
-  border-radius: 50px;
-  border: 2px solid #1c95eb;
-  font-size: 1rem;
-  background-color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: #30ce27;
-  box-shadow: 0 0 8px rgba(48, 206, 39, 0.3);
 }
 
 .don-section {
