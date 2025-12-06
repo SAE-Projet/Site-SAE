@@ -332,6 +332,10 @@ footer p {
   font-size: 0.95rem;
 }
 
+.footer-nav-mobile {
+  display: none;
+}
+
 @media (max-width: 768px){
 
   nav {
