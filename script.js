@@ -202,9 +202,9 @@ donCards.forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("modalImage").src = card.dataset.image;
     document.getElementById("modalTitle").innerText = card.dataset.title;
-    document.getElementById("modalLocalisation").innerText = card.dataset.localisation;
+    document.getElementById("modalLocalisation").innerText = "📍 " + card.dataset.localisation;
     document.getElementById("modalDescription").innerText = card.dataset.description;
-    document.getElementById("modalContact").innerText = card.dataset.contact;
+    document.getElementById("modalContact").innerText = "📞 Contact : " + card.dataset.contact;
 
     donModal.style.display = "flex";
   });
@@ -222,10 +222,10 @@ serviceCards.forEach(card => {
   card.addEventListener("click", () => {
     document.getElementById("serviceModalImage").src = card.dataset.image;
     document.getElementById("serviceModalTitle").innerText = card.dataset.title;
-    document.getElementById("serviceModalLocalisation").innerText = card.dataset.localisation;
+    document.getElementById("serviceModalLocalisation").innerText = "📍 " + card.dataset.localisation;
     document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
-    document.getElementById("serviceModalContact").innerText = card.dataset.contact || "";
-    document.getElementById("serviceModalPrice").innerText = card.dataset.price || "";
+    document.getElementById("serviceModalContact").innerText = "📞 Contact : " +  card.dataset.contact || "";
+    document.getElementById("serviceModalPrice").innerText = "💶 Prix : " +  card.dataset.price || "";
 
     serviceModal.style.display = "flex";
   });
@@ -240,3 +240,4 @@ window.addEventListener("click", (e) => {
   if (e.target === donModal) donModal.style.display = "none";
   if (e.target === serviceModal) serviceModal.style.display = "none";
 });
+
