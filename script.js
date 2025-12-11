@@ -203,7 +203,7 @@ donCards.forEach(card => {
     document.getElementById("modalImage").src = card.dataset.image;
     document.getElementById("modalTitle").innerText = card.dataset.title;
     document.getElementById("modalLocalisation").innerText = "📍 " + card.dataset.localisation;
-    document.getElementById("modalDescription").innerText = card.dataset.description;
+    document.getElementById("modalDescription").innerHTML = card.dataset.description.replace(/\n/g, "<br>");
     document.getElementById("modalContact").innerText = "📞 Contact : " + card.dataset.contact;
 
     donModal.style.display = "flex";
@@ -240,4 +240,5 @@ window.addEventListener("click", (e) => {
   if (e.target === donModal) donModal.style.display = "none";
   if (e.target === serviceModal) serviceModal.style.display = "none";
 });
+
 
