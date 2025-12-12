@@ -223,7 +223,7 @@ serviceCards.forEach(card => {
     document.getElementById("serviceModalImage").src = card.dataset.image;
     document.getElementById("serviceModalTitle").innerText = card.dataset.title;
     document.getElementById("serviceModalLocalisation").innerText = "📍 " + card.dataset.localisation;
-    document.getElementById("modalDescription").innerHTML = card.dataset.description.replace(/\n/g, "<br>");
+    document.getElementById("serviceModalDescription").innerHTML = card.dataset.description;
     document.getElementById("serviceModalContact").innerText = "📞 Contact : " +  card.dataset.contact || "";
     document.getElementById("serviceModalPrice").innerText = "💶 Prix : " +  card.dataset.price || "";
 
@@ -240,6 +240,7 @@ window.addEventListener("click", (e) => {
   if (e.target === donModal) donModal.style.display = "none";
   if (e.target === serviceModal) serviceModal.style.display = "none";
 });
+
 
 
 
